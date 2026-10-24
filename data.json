@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-10-24T18:21:23.430960+01:00",
+  "updated_at": "2026-10-24T18:36:21.797888+01:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 10,
-    "feels_like": 5,
-    "wind_mph": 35,
-    "gust_mph": 52,
-    "wind_dir": "SSE",
-    "wind_deg": 150,
+    "feels_like": 6,
+    "wind_mph": 26,
+    "gust_mph": 43,
+    "wind_dir": "S",
+    "wind_deg": 170,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 966,
+    "pressure_hpa": 965,
     "humidity": 87,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-24T18:00:00+01:00",
+    "observed_at": "2026-10-24T18:20:00+01:00",
     "outlook": "Now: South-south-west wind 10 mph; visibility good; scattered cloud at 4000 ft. Becoming: South-south-east wind 25 mph, gusting 37 mph. At times: Visibility moderate, 6000 m; rain; broken cloud at 1200 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
       "notice_updated": "Saturday 24th October 2026 at 17:05",
-      "checked_at": "2026-10-24T18:21:37.543153+01:00",
+      "checked_at": "2026-10-24T18:36:27.484763+01:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -39,11 +39,11 @@
     "wind_deg": 190,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 985,
-    "humidity": 94,
+    "pressure_hpa": 984,
+    "humidity": 100,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-24T18:00:00+01:00",
+    "observed_at": "2026-10-24T18:20:00+01:00",
     "outlook": "Now: South wind 23 mph, gusting 35 mph; visibility good; scattered cloud at 2500 ft. Becoming: West-south-west wind 25 mph, gusting 46 mph. At times: Visibility moderate, 6000 m; rain."
   }
 }
