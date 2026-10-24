@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T16:36:21.121010+01:00",
+  "updated_at": "2026-10-24T16:51:26.298706+01:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
       "notice_updated": "Saturday 24th October 2026 at 14:50",
-      "checked_at": "2026-10-24T16:36:26.669692+01:00",
+      "checked_at": "2026-10-24T16:51:51.029839+01:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -44,6 +44,6 @@
     "condition": "Rain",
     "glyph": "rain",
     "observed_at": "2026-10-24T16:20:00+01:00",
-    "outlook": "Now: South wind 21 mph, gusting 32 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility moderate, 6000 m; rain. Possibly, at times: South wind 25 mph, gusting 44 mph; visibility poor, only 2000 m; heavy rain, showers; broken cloud at 900 ft."
+    "outlook": "Now: South wind 14 mph; visibility good; scattered cloud at 2500 ft. Becoming: South wind 21 mph, gusting 32 mph. At times: Visibility moderate, 3000 m; broken cloud at 900 ft."
   }
 }
