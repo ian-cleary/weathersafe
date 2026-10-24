@@ -134,7 +134,7 @@
   </div>
 
   <p class="foot">Observations come from the nearest airport weather station
-    (Wick Airport for Thurso, Humberside Airport for Manton) and are refreshed
+    (Wick Airport for Thurso, Humberside Airport for Manton) and refresh
     every 10 minutes. If a source is down, readings show as unavailable — never
     a guessed number. Feels-like is calculated from temperature and wind.
     Warnings open on the Met Office website.</p>
@@ -276,9 +276,8 @@ function render(){
   setText("obs", obs, false);
 }
 
-/* Compact client-side METAR parser: only used if data.json is absent.
-   The aviation API does not send CORS headers, so this is a best effort
-   fallback; the scheduled data.json is the normal path. */
+/* Compact client-side METAR parser, used for the live VATSIM feed and
+   whenever data.json is absent or stale. */
 function parseMetarClient(raw){
   var o = {temp:null, feels_like:null, wind_mph:null, gust_mph:null, wind_dir:null,
            wind_deg:null, rain_mm:null, rain_now:null, pressure_hpa:null,
@@ -329,31 +328,62 @@ function parseMetarClient(raw){
   return o;
 }
 
+/* Observation time from a METAR day/time group (DDHHMMZ, UTC). */
+function metarTime(raw){
+  var m = raw.match(/\b(\d{2})(\d{2})(\d{2})Z\b/);
+  if(!m) return null;
+  var now = new Date();
+  var d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(),
+    parseInt(m[1],10), parseInt(m[2],10), parseInt(m[3],10)));
+  if(d.getTime() > now.getTime() + 3600000) d.setUTCMonth(d.getUTCMonth() - 1);
+  return d.toISOString();
+}
+function ageMinutes(iso){
+  if(!iso) return Infinity;
+  var t = new Date(iso).getTime();
+  if(isNaN(t)) return Infinity;
+  return (Date.now() - t) / 60000;
+}
+
+/* Source chain, in order:
+   1. data.json younger than 60 minutes (local station data, when wired in)
+   2. live METAR from VATSIM (CORS-open, no key)
+   3. data.json however old, with its observation time shown
+   4. unavailable — never a guessed number.
+   The outlook comes from data.json while it is under 6 hours old
+   (a TAF forecast stays useful for hours). */
 function load(){
   setText("condition","Loading…",false);
-  fetch("data.json", {cache:"no-store"}).then(function(r){
+  var town = TOWNS[currentTown];
+  var djPromise = fetch("data.json", {cache:"no-store"}).then(function(r){
     if(!r.ok) throw new Error("no data.json");
     return r.json();
-  }).then(function(all){
-    currentData = all[currentTown] || null;
+  }).catch(function(){ return null; });
+  var metarPromise = fetch("https://metar.vatsim.net/metar.php?id=" + town.icao)
+    .then(function(r){ return r.text(); })
+    .then(function(txt){
+      txt = (txt || "").trim();
+      if(!txt) throw new Error("empty");
+      var d = parseMetarClient(txt);
+      d.source = town.station;
+      d.observed_at = metarTime(txt);
+      return d;
+    }).catch(function(){ return null; });
+  Promise.all([djPromise, metarPromise]).then(function(pair){
+    var all = pair[0], live = pair[1];
+    var dj = all ? all[currentTown] : null;
+    var data = null;
+    if(dj && ageMinutes(dj.updated_at || dj.observed_at) < 60){
+      data = dj;
+    } else if(live){
+      data = live;
+      if(dj && dj.outlook && ageMinutes(dj.updated_at || dj.observed_at) < 360)
+        data.outlook = dj.outlook;
+    } else if(dj){
+      data = dj;
+    }
+    currentData = data;
     render();
-  }).catch(function(){
-    /* Fallback: try the aviation API directly (CORS may block it). */
-    var icao = TOWNS[currentTown].icao;
-    fetch("https://aviationweather.gov/api/data/metar?ids=" + icao + "&format=json")
-      .then(function(r){ return r.json(); })
-      .then(function(arr){
-        if(!arr || !arr.length) throw new Error("empty");
-        var d = parseMetarClient(arr[0].rawOb);
-        d.source = TOWNS[currentTown].station;
-        d.observed_at = arr[0].reportTime;
-        d.outlook = null;
-        currentData = d;
-        render();
-      }).catch(function(){
-        currentData = null;
-        render();
-      });
   });
 }
 function switchTown(t){
