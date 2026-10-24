@@ -1,23 +1,31 @@
 {
-  "updated_at": "2026-10-24T15:21:23.457134+01:00",
+  "updated_at": "2026-10-24T15:26:43.090777+01:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 9,
     "feels_like": 4,
-    "wind_mph": 35,
-    "gust_mph": 48,
+    "wind_mph": 39,
+    "gust_mph": 53,
     "wind_dir": "SE",
     "wind_deg": 140,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 978,
+    "pressure_hpa": 975,
     "humidity": 81,
     "condition": "Rain",
     "glyph": "rain",
-    "observed_at": "2026-10-24T15:00:00+01:00",
-    "outlook": "Now: South-east wind 29 mph, gusting 44 mph; visibility good; scattered cloud at 4000 ft. At times: Visibility moderate, 6000 m; rain; broken cloud at 1200 ft. Possibly, at times: South-south-east wind 40 mph, gusting 58 mph; visibility moderate, 3000 m; heavy rain; broken cloud at 800 ft."
+    "observed_at": "2026-10-24T15:20:00+01:00",
+    "outlook": "Now: South-east wind 29 mph, gusting 44 mph; visibility good; scattered cloud at 4000 ft. At times: Visibility moderate, 6000 m; rain; broken cloud at 1200 ft. Possibly, at times: South-south-east wind 40 mph, gusting 58 mph; visibility moderate, 3000 m; heavy rain; broken cloud at 800 ft.",
+    "ferries": {
+      "status": "disrupted",
+      "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
+      "notice_updated": "Saturday 24th October 2026 at 14:50",
+      "checked_at": "2026-10-24T15:26:53.151303+01:00",
+      "source": "NorthLink Ferries Ops News",
+      "url": "https://www.northlinkferries.co.uk/opsnews/"
+    }
   },
   "manton": {
     "source": "Humberside Airport",
@@ -25,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 10,
     "feels_like": 6,
-    "wind_mph": 21,
+    "wind_mph": 23,
     "gust_mph": null,
     "wind_dir": "S",
     "wind_deg": 180,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 995,
+    "pressure_hpa": 993,
     "humidity": 100,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-24T15:00:00+01:00",
+    "observed_at": "2026-10-24T15:20:00+01:00",
     "outlook": "Now: South wind 21 mph, gusting 32 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility moderate, 6000 m; rain. Possibly, at times: South wind 25 mph, gusting 44 mph; visibility poor, only 2000 m; heavy rain, showers; broken cloud at 900 ft."
   }
 }
