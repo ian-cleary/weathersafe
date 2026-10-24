@@ -316,7 +316,7 @@ function parseMetarClient(raw){
   var vis = toks.indexOf("CAVOK") >= 0 ? 10000 : (visTok.length ? parseInt(visTok[0],10) : null);
   if(wx.some(function(w){ return w.indexOf("TS") === 0; })){ o.condition = "Thunderstorms"; o.glyph = "storm"; }
   else if(wx.some(function(w){ return ["SN","+SN","-SN","SHSN"].indexOf(w) >= 0; })){ o.condition = "Snow"; o.glyph = "snow"; }
-  else if(wx.some(function(w){ return ["RA","+RA","-RA","SHRA","DZ","TSRA"].indexOf(w) >= 0; }){
+  else if(wx.some(function(w){ return ["RA","+RA","-RA","SHRA","DZ","TSRA"].indexOf(w) >= 0; })){
     o.condition = (wx.indexOf("+RA") >= 0 || wx.indexOf("TSRA") >= 0) ? "Heavy rain"
       : (wx.indexOf("-RA") >= 0 || wx.indexOf("DZ") >= 0) ? "Light rain" : "Rain";
     o.glyph = "rain";
