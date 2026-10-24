@@ -105,7 +105,7 @@ def parse_metar(raw):
     for tok in tokens:
         if re.fullmatch(r"[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC)", tok):
             wx.append(tok)
-    out["rain_now"] = any(w in ("RA", "DZ", "SHRA", "+RA", "TSRA") for w in wx)
+    out["rain_now"] = any(w in ("RA", "-RA", "DZ", "-DZ", "SHRA", "+RA", "TSRA") for w in wx)
 
     clouds = re.findall(r"\b(FEW|SCT|BKN|OVC)(\d{3})\b", raw)
     cover = clouds[-1][0] if clouds else None
