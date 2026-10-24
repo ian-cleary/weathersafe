@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WeatherSafe — Thurso and Manton weather</title>
+<meta name="description" content="Plain, big-print weather for Thurso and Manton: current conditions, wind, rain, pressure and the near-term outlook.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6f1e7">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="WeatherSafe">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --card:#fffdf7; --ink:#22302e; --muted:#5c6b66;
+    --line:#d8cfbc; --slate:#2f4a52; --amber:#e8a317; --red:#b03a2e;
+    --red-soft:#f9e2de; --blue:#4a7fa5; --radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:21px;line-height:1.45}
+  .wrap{max-width:660px;margin:0 auto;padding:28px 20px 60px}
+  h1{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:800;
+    font-size:clamp(56px,14vw,88px);line-height:.95;margin:0 0 4px;letter-spacing:.01em}
+  .lede{font-size:22px;color:var(--muted);margin:0 0 26px}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 22px}
+  .tabs button{border:2px solid var(--line);border-radius:var(--radius);background:var(--card);
+    font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;font-size:30px;
+    padding:16px 10px;cursor:pointer;color:var(--ink)}
+  .tabs button[aria-selected="true"]{background:var(--slate);color:#f6f1e7;border-color:var(--slate)}
+  .tabs button:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+    padding:24px;margin:0 0 16px}
+  .current{display:flex;gap:20px;align-items:center}
+  .glyph{flex:0 0 118px;width:118px;height:88px}
+  .condition{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;
+    font-size:34px;line-height:1;margin:0 0 2px}
+  .temp{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:800;
+    font-size:clamp(76px,20vw,112px);line-height:.9;margin:0}
+  .temp small{font-size:.35em;font-weight:700}
+  .feels{font-size:22px;color:var(--muted);margin:6px 0 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .reading{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+  .reading .label{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+  .reading .value{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;
+    font-size:36px;line-height:1.05;margin:0}
+  .reading .sub{font-size:19px;color:var(--muted);margin:4px 0 0}
+  .unavail{color:var(--muted);font-style:italic}
+  h2{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;font-size:30px;
+    line-height:1.1;margin:0 0 8px}
+  .outlook{font-size:21px;margin:0}
+  .warn{background:var(--red-soft);border-color:var(--red)}
+  .warn a{color:var(--red);font-weight:700}
+  .obs{font-size:19px;color:var(--muted);margin:0}
+  .obs strong{color:var(--ink)}
+  .refresh{display:inline-block;margin-top:14px;border:2px solid var(--slate);border-radius:12px;
+    background:var(--slate);color:#f6f1e7;font:inherit;font-weight:700;font-size:20px;
+    padding:10px 22px;cursor:pointer}
+  .foot{font-size:18px;color:var(--muted);margin:26px 0 0}
+  .foot a{color:var(--slate)}
+  @media (max-width:420px){
+    .current{flex-direction:column;align-items:flex-start;gap:8px}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>WeatherSafe</h1>
+  <p class="lede">Weather for Thurso and Manton, plain and simple.</p>
+
+  <div class="tabs" role="tablist" aria-label="Town">
+    <button id="tab-thurso" role="tab" aria-selected="true" aria-controls="panel">Thurso</button>
+    <button id="tab-manton" role="tab" aria-selected="false" aria-controls="panel">Manton</button>
+  </div>
+
+  <div id="panel" role="tabpanel">
+    <section class="card">
+      <div class="current">
+        <div class="glyph" id="glyph" aria-hidden="true"></div>
+        <div>
+          <p class="condition" id="condition">Loading…</p>
+          <p class="temp"><span id="temp">–</span><small>°C</small></p>
+          <p class="feels" id="feels"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Readings">
+      <div class="reading">
+        <p class="label">Wind</p>
+        <p class="value" id="wind">–</p>
+        <p class="sub" id="wind-sub"></p>
+      </div>
+      <div class="reading">
+        <p class="label">Rain</p>
+        <p class="value" id="rain">–</p>
+        <p class="sub" id="rain-sub"></p>
+      </div>
+      <div class="reading">
+        <p class="label">Pressure</p>
+        <p class="value" id="pressure">–</p>
+        <p class="sub">at sea level</p>
+      </div>
+      <div class="reading">
+        <p class="label">Humidity</p>
+        <p class="value" id="humidity">–</p>
+        <p class="sub">relative humidity</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Coming up</h2>
+      <p class="outlook" id="outlook">Loading…</p>
+    </section>
+
+    <section class="card warn">
+      <h2>Weather warnings</h2>
+      <p class="outlook" id="warn-text"></p>
+    </section>
+
+    <section class="card">
+      <p class="obs" id="obs">Waiting for data…</p>
+      <button class="refresh" id="refresh" type="button">Refresh</button>
+    </section>
+  </div>
+
+  <p class="foot">Observations come from the nearest airport weather station
+    (Wick Airport for Thurso, Humberside Airport for Manton) and are refreshed
+    every 10 minutes. If a source is down, readings show as unavailable — never
+    a guessed number. Feels-like is calculated from temperature and wind.
+    Warnings open on the Met Office website.</p>
+</div>
+
+<script>
+"use strict";
+/* Flat hand-drawn glyphs, inline SVG — no generated images. */
+var GLYPHS = {
+  sun: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g stroke="#e8a317" stroke-width="6" stroke-linecap="round">'
+    + '<line x1="60" y1="4" x2="60" y2="14"/><line x1="60" y1="76" x2="60" y2="86"/>'
+    + '<line x1="19" y1="45" x2="29" y2="45"/><line x1="91" y1="45" x2="101" y2="45"/>'
+    + '<line x1="31" y1="16" x2="38" y2="23"/><line x1="82" y1="67" x2="89" y2="74"/>'
+    + '<line x1="89" y1="16" x2="82" y2="23"/><line x1="38" y1="67" x2="31" y2="74"/></g>'
+    + '<circle cx="60" cy="45" r="22" fill="#e8a317"/></svg>',
+  moon: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<path d="M72 6 A40 40 0 1 0 72 84 A32 32 0 1 1 72 6 Z" fill="#e8c96a"/></svg>',
+  cloud: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g fill="#dde3e6"><circle cx="34" cy="58" r="17"/><circle cx="58" cy="44" r="25"/>'
+    + '<circle cx="86" cy="56" r="19"/><rect x="26" y="56" width="72" height="18" rx="9"/></g></svg>',
+  partly: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g stroke="#e8a317" stroke-width="5" stroke-linecap="round">'
+    + '<line x1="34" y1="6" x2="34" y2="13"/><line x1="34" y1="45" x2="34" y2="52"/>'
+    + '<line x1="12" y1="28" x2="19" y2="28"/><line x1="49" y1="28" x2="56" y2="28"/></g>'
+    + '<circle cx="34" cy="29" r="15" fill="#e8a317"/>'
+    + '<g fill="#dde3e6"><circle cx="58" cy="62" r="15"/><circle cx="78" cy="50" r="21"/>'
+    + '<circle cx="100" cy="60" r="16"/><rect x="51" y="60" width="58" height="15" rx="7"/></g></svg>',
+  rain: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g fill="#dde3e6"><circle cx="34" cy="44" r="17"/><circle cx="58" cy="30" r="25"/>'
+    + '<circle cx="86" cy="42" r="19"/><rect x="26" y="42" width="72" height="18" rx="9"/></g>'
+    + '<g fill="#4a7fa5"><path d="M44 64 q6 9 0 15 q-6-6 0-15Z"/><path d="M60 64 q6 9 0 15 q-6-6 0-15Z"/><path d="M76 64 q6 9 0 15 q-6-6 0-15Z"/></g></svg>',
+  storm: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g fill="#8a9ba3"><circle cx="34" cy="42" r="17"/><circle cx="58" cy="28" r="25"/>'
+    + '<circle cx="86" cy="40" r="19"/><rect x="26" y="40" width="72" height="18" rx="9"/></g>'
+    + '<polygon points="64,50 48,70 58,70 50,86 76,62 64,62" fill="#e8a317"/></svg>',
+  snow: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g fill="#dde3e6"><circle cx="34" cy="42" r="17"/><circle cx="58" cy="28" r="25"/>'
+    + '<circle cx="86" cy="40" r="19"/><rect x="26" y="40" width="72" height="18" rx="9"/></g>'
+    + '<g stroke="#7fa3b8" stroke-width="3" stroke-linecap="round">'
+    + '<line x1="42" y1="66" x2="50" y2="74"/><line x1="50" y1="66" x2="42" y2="74"/>'
+    + '<line x1="57" y1="70" x2="65" y2="78"/><line x1="65" y1="70" x2="57" y2="78"/>'
+    + '<line x1="72" y1="66" x2="80" y2="74"/><line x1="80" y1="66" x2="72" y2="74"/></g></svg>',
+  fog: '<svg viewBox="0 0 120 90" width="118" height="88" aria-hidden="true">'
+    + '<g fill="#dde3e6"><circle cx="34" cy="38" r="17"/><circle cx="58" cy="24" r="25"/>'
+    + '<circle cx="86" cy="36" r="19"/><rect x="26" y="36" width="72" height="18" rx="9"/></g>'
+    + '<g stroke="#8a9ba3" stroke-width="4" stroke-linecap="round">'
+    + '<line x1="34" y1="64" x2="88" y2="64"/><line x1="42" y1="74" x2="80" y2="74"/>'
+    + '<line x1="34" y1="84" x2="88" y2="84"/></g></svg>'
+};
+var COMPASS = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+var COMPASS_WORDS = {N:"north",NNE:"north-north-east",NE:"north-east",ENE:"east-north-east",
+  E:"east",ESE:"east-south-east",SE:"south-east",SSE:"south-south-east",S:"south",
+  SSW:"south-south-west",SW:"south-west",WSW:"west-south-west",W:"west",
+  WNW:"west-north-west",NW:"north-west",NNW:"north-north-west"};
+var TOWNS = {
+  thurso: {label:"Thurso", station:"Wick Airport", icao:"EGPC",
+           warnRegion:"Highland &amp; Eilean Siar"},
+  manton: {label:"Manton", station:"Humberside Airport", icao:"EGNJ",
+           warnRegion:"Yorkshire &amp; Humber"}
+};
+var WARN_URL = "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings";
+var currentTown = (location.hash.replace("#","") === "manton") ? "manton" : "thurso";
+var currentData = null;
+
+function fmtTime(iso){
+  if(!iso) return null;
+  var d = new Date(iso);
+  if(isNaN(d)) return null;
+  return d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"});
+}
+function setText(id, text, unavail){
+  var el = document.getElementById(id);
+  el.textContent = text;
+  el.classList.toggle("unavail", !!unavail);
+}
+function render(){
+  var t = TOWNS[currentTown], d = currentData;
+  document.getElementById("tab-thurso").setAttribute("aria-selected", currentTown === "thurso");
+  document.getElementById("tab-manton").setAttribute("aria-selected", currentTown === "manton");
+  document.getElementById("warn-text").innerHTML =
+    'Check the Met Office warnings for ' + t.warnRegion +
+    ': <a href="' + WARN_URL + '">Met Office warnings</a>';
+  if(!d){
+    document.getElementById("glyph").innerHTML = "";
+    setText("condition","Unavailable",true);
+    setText("temp","–",true); setText("feels","",false);
+    setText("wind","unavailable",true); setText("wind-sub","",false);
+    setText("rain","unavailable",true); setText("rain-sub","",false);
+    setText("pressure","unavailable",true); setText("humidity","unavailable",true);
+    setText("outlook","Outlook unavailable right now.",true);
+    setText("obs","No data yet — try Refresh.",true);
+    return;
+  }
+  var glyph = d.glyph || "cloud";
+  /* Night-time clear sky gets the moon. */
+  if(glyph === "clear" && d.observed_at){
+    var h = new Date(d.observed_at).getHours();
+    if(h < 7 || h >= 18) glyph = "moon";
+  }
+  document.getElementById("glyph").innerHTML = GLYPHS[glyph] || GLYPHS.cloud;
+  setText("condition", d.condition || "Unavailable", !d.condition);
+  setText("temp", (d.temp === null || d.temp === undefined) ? "–" : String(d.temp),
+          d.temp === null || d.temp === undefined);
+  setText("feels", (d.feels_like === null || d.feels_like === undefined)
+          ? "" : "Feels like " + d.feels_like + "°C");
+  if(d.wind_mph === null || d.wind_mph === undefined){
+    setText("wind","unavailable",true); setText("wind-sub","",false);
+  } else {
+    var dirWord = d.wind_dir && COMPASS_WORDS[d.wind_dir]
+      ? "from the " + COMPASS_WORDS[d.wind_dir] : "";
+    setText("wind", d.wind_mph + " mph", false);
+    setText("wind-sub", ((d.wind_dir || "") + " " + dirWord +
+      (d.gust_mph ? " · gusting " + d.gust_mph + " mph" : " · gusts steady")).trim(), false);
+  }
+  if(d.rain_mm !== null && d.rain_mm !== undefined){
+    setText("rain", d.rain_mm + " mm", false);
+    setText("rain-sub","recorded rainfall",false);
+  } else if(d.rain_now){
+    setText("rain","Raining now",false);
+    setText("rain-sub","amount not reported",false);
+  } else if(d.rain_now === false){
+    setText("rain","Dry",false);
+    setText("rain-sub","none reported at observation",false);
+  } else {
+    setText("rain","unavailable",true); setText("rain-sub","",false);
+  }
+  setText("pressure", (d.pressure_hpa === null || d.pressure_hpa === undefined)
+          ? "unavailable" : d.pressure_hpa + " hPa",
+          d.pressure_hpa === null || d.pressure_hpa === undefined);
+  setText("humidity", (d.humidity === null || d.humidity === undefined)
+          ? "unavailable" : d.humidity + "%",
+          d.humidity === null || d.humidity === undefined);
+  setText("outlook", d.outlook || "Outlook unavailable right now.", !d.outlook);
+  var obs = "Observed at " + (d.source || t.station) +
+    (fmtTime(d.observed_at) ? ", " + fmtTime(d.observed_at) : "") +
+    ". Page updated " + new Date().toLocaleTimeString("en-GB",
+      {hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"}) + ".";
+  setText("obs", obs, false);
+}
+
+/* Compact client-side METAR parser: only used if data.json is absent.
+   The aviation API does not send CORS headers, so this is a best effort
+   fallback; the scheduled data.json is the normal path. */
+function parseMetarClient(raw){
+  var o = {temp:null, feels_like:null, wind_mph:null, gust_mph:null, wind_dir:null,
+           wind_deg:null, rain_mm:null, rain_now:null, pressure_hpa:null,
+           humidity:null, condition:null, glyph:null};
+  var m = raw.match(/\b(VRB|\d{3})(\d{2,3})(G(\d{2,3}))?KT\b/);
+  if(m){
+    if(m[1] !== "VRB"){ o.wind_deg = parseInt(m[1],10);
+      o.wind_dir = COMPASS[Math.round(o.wind_deg/22.5) % 16]; }
+    else o.wind_dir = "Variable";
+    o.wind_mph = Math.round(parseInt(m[2],10) * 1.15078);
+    o.gust_mph = m[4] ? Math.round(parseInt(m[4],10) * 1.15078) : null;
+  }
+  var t = raw.match(/\b(M?\d{2})\/(M?\d{2})\b/);
+  function num(s){ return s.charAt(0) === "M" ? -parseInt(s.slice(1),10) : parseInt(s,10); }
+  if(t){
+    o.temp = num(t[1]);
+    var dew = num(t[2]);
+    var sat = function(x){ return Math.exp(17.625*x/(243.04+x)); };
+    o.humidity = Math.round(100 * sat(dew) / sat(o.temp));
+  }
+  var p = raw.match(/\bQ(\d{4})\b/);
+  if(p) o.pressure_hpa = parseInt(p[1],10);
+  if(o.temp !== null && o.wind_mph !== null){
+    var v = o.wind_mph / 0.621371;
+    o.feels_like = (o.temp <= 10 && v >= 4.8)
+      ? Math.round(13.12 + 0.6215*o.temp - 11.37*Math.pow(v,0.16) + 0.3965*o.temp*Math.pow(v,0.16))
+      : o.temp;
+  }
+  var toks = raw.split(" ");
+  var wx = toks.filter(function(x){ return /^[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC)$/.test(x); });
+  o.rain_now = wx.some(function(w){ return ["RA","DZ","SHRA","+RA","TSRA"].indexOf(w) >= 0; });
+  var cl = raw.match(/\b(FEW|SCT|BKN|OVC)\d{3}\b/g);
+  var cover = cl ? cl[cl.length-1].slice(0,3) : "CLR";
+  if(toks.indexOf("NCD") >= 0 || toks.indexOf("CLR") >= 0 || toks.indexOf("SKC") >= 0) cover = "CLR";
+  var visTok = toks.filter(function(x){ return /^\d{4}$/.test(x); });
+  var vis = toks.indexOf("CAVOK") >= 0 ? 10000 : (visTok.length ? parseInt(visTok[0],10) : null);
+  if(wx.some(function(w){ return w.indexOf("TS") === 0; })){ o.condition = "Thunderstorms"; o.glyph = "storm"; }
+  else if(wx.some(function(w){ return ["SN","+SN","-SN","SHSN"].indexOf(w) >= 0; })){ o.condition = "Snow"; o.glyph = "snow"; }
+  else if(wx.some(function(w){ return ["RA","+RA","-RA","SHRA","DZ","TSRA"].indexOf(w) >= 0; }){
+    o.condition = (wx.indexOf("+RA") >= 0 || wx.indexOf("TSRA") >= 0) ? "Heavy rain"
+      : (wx.indexOf("-RA") >= 0 || wx.indexOf("DZ") >= 0) ? "Light rain" : "Rain";
+    o.glyph = "rain";
+  }
+  else if(wx.indexOf("FG") >= 0 || wx.indexOf("BR") >= 0 || (vis !== null && vis < 1000)){ o.condition = "Fog"; o.glyph = "fog"; }
+  else if(cover === "OVC" || cover === "BKN"){ o.condition = "Cloudy"; o.glyph = "cloud"; }
+  else if(cover === "SCT"){ o.condition = "Partly cloudy"; o.glyph = "partly"; }
+  else { o.condition = "Clear"; o.glyph = "clear"; }
+  return o;
+}
+
+function load(){
+  setText("condition","Loading…",false);
+  fetch("data.json", {cache:"no-store"}).then(function(r){
+    if(!r.ok) throw new Error("no data.json");
+    return r.json();
+  }).then(function(all){
+    currentData = all[currentTown] || null;
+    render();
+  }).catch(function(){
+    /* Fallback: try the aviation API directly (CORS may block it). */
+    var icao = TOWNS[currentTown].icao;
+    fetch("https://aviationweather.gov/api/data/metar?ids=" + icao + "&format=json")
+      .then(function(r){ return r.json(); })
+      .then(function(arr){
+        if(!arr || !arr.length) throw new Error("empty");
+        var d = parseMetarClient(arr[0].rawOb);
+        d.source = TOWNS[currentTown].station;
+        d.observed_at = arr[0].reportTime;
+        d.outlook = null;
+        currentData = d;
+        render();
+      }).catch(function(){
+        currentData = null;
+        render();
+      });
+  });
+}
+function switchTown(t){
+  currentTown = t;
+  location.hash = t;
+  load();
+}
+document.getElementById("tab-thurso").addEventListener("click", function(){ switchTown("thurso"); });
+document.getElementById("tab-manton").addEventListener("click", function(){ switchTown("manton"); });
+document.getElementById("refresh").addEventListener("click", load);
+window.addEventListener("hashchange", function(){
+  var t = location.hash.replace("#","");
+  if((t === "thurso" || t === "manton") && t !== currentTown){ currentTown = t; load(); }
+});
+load();
+setInterval(load, 10 * 60 * 1000);
+</script>
+</body>
+</html>
