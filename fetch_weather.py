@@ -20,6 +20,15 @@ API = "https://aviationweather.gov/api/data"
 LONDON = ZoneInfo("Europe/London")
 KT_TO_MPH = 1.15078
 
+FERRY_URL = "https://www.northlinkferries.co.uk/opsnews/"
+# Disruption keywords in priority order for picking the detail line.
+# The "Service Disruptions" header itself is excluded below: it is a
+# heading, not a disruption.
+FERRY_SKIP = ("service disruptions", "check in", "check-in", "call ",
+              "0800", "reminded", "booking reference")
+FERRY_KEYWORDS = ("cancel", "delay", "under review", "disruption",
+                  "adverse weather")
+
 STATIONS = {
     "thurso": {"icao": "EGPC", "source": "Wick Airport"},
     "manton": {"icao": "EGNJ", "source": "Humberside Airport"},
@@ -222,14 +231,80 @@ def taf_outlook(raw):
     return " ".join(sentences) if sentences else None
 
 
+def fetch_text(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "WeatherSafe/1.0"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8", "ignore")
+
+
 def fetch_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "WeatherSafe/1.0"})
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode())
 
 
+def fetch_ferries(previous):
+    """Scrabster-Stromness (Pentland Firth) disruption flag from
+    NorthLink Ops News. Returns a ferries block; on any failure the
+    previous block is carried over so a failed fetch never clears a
+    real disruption, and with no previous block the status is unknown.
+    Only the Pentland Firth section counts: Aberdeen cancellations
+    must not flag Thurso."""
+    fallback = previous or {"status": "unknown", "detail": None,
+                            "notice_updated": None, "checked_at": None,
+                            "source": "NorthLink Ferries Ops News",
+                            "url": FERRY_URL}
+    try:
+        html = fetch_text(FERRY_URL)
+        text = re.sub(r"<script.*?</script>", " ", html, flags=re.S)
+        text = re.sub(r"<style.*?</style>", " ", text, flags=re.S)
+        text = re.sub(r"<[^>]+>", "\n", text)
+        lines = [" ".join(l.split()) for l in text.split("\n")]
+        lines = [l for l in lines if l]
+        start = next(i for i, l in enumerate(lines)
+                     if "Pentland Firth Arrivals and Departures" in l)
+        end = next((i for i in range(start + 1, len(lines))
+                    if "Aberdeen Arrivals and Departures" in lines[i]), len(lines))
+        section = lines[start + 1:end]
+        notice = None
+        for l in section:
+            m = re.search(r"Service Disruptions - Updated on (.+)$", l)
+            if m:
+                notice = m.group(1).strip()
+                break
+        candidates = []
+        for l in section:
+            low = l.lower()
+            if any(s in low for s in FERRY_SKIP):
+                continue
+            for rank, kw in enumerate(FERRY_KEYWORDS):
+                if kw in low:
+                    candidates.append((rank, l))
+                    break
+        if not candidates:
+            status, detail = "normal", None
+        else:
+            candidates.sort(key=lambda c: c[0])
+            status = "disrupted"
+            detail = candidates[0][1]
+            if len(detail) > 180:
+                detail = detail[:177].rsplit(" ", 1)[0] + "…"
+        return {"status": status, "detail": detail,
+                "notice_updated": notice,
+                "checked_at": datetime.now(LONDON).isoformat(),
+                "source": "NorthLink Ferries Ops News", "url": FERRY_URL}
+    except Exception as exc:
+        print("Ferries fetch failed: %s" % exc, file=sys.stderr)
+        return fallback
+
+
 def main():
     data = {"updated_at": datetime.now(LONDON).isoformat()}
+    try:
+        with open("data.json") as f:
+            previous = json.load(f)
+    except Exception:
+        previous = {}
     for key, st in STATIONS.items():
         entry = {"source": st["source"]}
         entry.update(CONFIDENCE[key])
@@ -251,6 +326,8 @@ def main():
             entry["outlook"] = None
         entry.setdefault("outlook", None)
         data[key] = entry
+    prev_ferries = (previous.get("thurso") or {}).get("ferries")
+    data["thurso"]["ferries"] = fetch_ferries(prev_ferries)
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
         f.write("\n")
