@@ -127,6 +127,11 @@
       <p class="outlook" id="warn-text"></p>
     </section>
 
+    <section class="card warn" id="ferry-card" hidden>
+      <h2>Ferries</h2>
+      <p class="outlook" id="ferry-text"></p>
+    </section>
+
     <section class="card">
       <p class="obs" id="obs">Waiting for data…</p>
       <p class="obs" id="confidence"></p>
@@ -199,6 +204,7 @@ var TOWNS = {
            warnRegion:"Yorkshire &amp; Humber"}
 };
 var WARN_URL = "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings";
+var FERRY_URL = "https://www.northlinkferries.co.uk/opsnews/";
 var currentTown = (location.hash.replace("#","") === "manton") ? "manton" : "thurso";
 var currentData = null;
 
@@ -229,6 +235,7 @@ function render(){
     setText("pressure","unavailable",true); setText("humidity","unavailable",true);
     setText("outlook","Outlook unavailable right now.",true);
     setText("obs","No data yet — try Refresh.",true);
+    document.getElementById("ferry-card").hidden = true;
     return;
   }
   var glyph = d.glyph || "cloud";
@@ -278,6 +285,22 @@ function render(){
   setText("obs", obs, false);
   setText("confidence", "Confidence: " + (d.confidence || "Medium") + " — " +
     (d.confidence_reason || "nearest official airport station, some miles away"), false);
+  /* Ferries: Thurso tab only, shown only while a disruption is live
+     (checked within the last day). Normal service shows nothing. */
+  var ferryCard = document.getElementById("ferry-card");
+  var f = d.ferries;
+  var showFerry = currentTown === "thurso" && f && f.status === "disrupted" &&
+    ageMinutes(f.checked_at) < 1440;
+  ferryCard.hidden = !showFerry;
+  if(showFerry){
+    var ft = document.getElementById("ferry-text");
+    ft.textContent = "Ferries disrupted: " + (f.detail || "sailings cancelled or delayed") +
+      (f.notice_updated ? " (notice " + f.notice_updated + ")" : "") +
+      (fmtTime(f.checked_at) ? " — checked " + fmtTime(f.checked_at) + ". " : " ");
+    var a = document.createElement("a");
+    a.href = FERRY_URL; a.textContent = "NorthLink service updates";
+    ft.appendChild(a);
+  }
 }
 
 /* Compact client-side METAR parser, used for the live VATSIM feed and
@@ -383,6 +406,8 @@ function load(){
       data = live;
       if(dj && dj.outlook && ageMinutes(dj.updated_at || dj.observed_at) < 360)
         data.outlook = dj.outlook;
+      if(dj && dj.ferries && ageMinutes(dj.ferries.checked_at) < 1440)
+        data.ferries = dj.ferries;
     } else if(dj){
       data = dj;
     }
