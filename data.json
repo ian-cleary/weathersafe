@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T12:36:21.161142+01:00",
+  "updated_at": "2026-10-24T12:51:24.263691+01:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -17,7 +17,7 @@
     "condition": "Clear",
     "glyph": "clear",
     "observed_at": "2026-10-24T12:20:00+01:00",
-    "outlook": "Now: West-south-west wind 7 mph; visibility good; scattered cloud at 4000 ft. Becoming: South wind 17 mph, gusting 29 mph. Becoming: South-east wind 29 mph, gusting 44 mph."
+    "outlook": "Now: South wind 17 mph, gusting 29 mph; visibility good; scattered cloud at 4000 ft. Becoming: South-east wind 29 mph, gusting 44 mph. At times: Visibility moderate, 6000 m; rain; broken cloud at 1200 ft."
   },
   "manton": {
     "source": "Humberside Airport",
