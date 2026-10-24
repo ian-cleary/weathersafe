@@ -257,7 +257,7 @@ function render(){
     setText("rain","Raining now",false);
     setText("rain-sub","amount not reported",false);
   } else if(d.rain_now === false){
-    setText("rain","Dry",false);
+    setText("rain","No rain reported",false);
     setText("rain-sub","none reported at observation",false);
   } else {
     setText("rain","unavailable",true); setText("rain-sub","",false);
@@ -308,7 +308,7 @@ function parseMetarClient(raw){
   }
   var toks = raw.split(" ");
   var wx = toks.filter(function(x){ return /^[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC)$/.test(x); });
-  o.rain_now = wx.some(function(w){ return ["RA","DZ","SHRA","+RA","TSRA"].indexOf(w) >= 0; });
+  o.rain_now = wx.some(function(w){ return ["RA","-RA","DZ","-DZ","SHRA","+RA","TSRA"].indexOf(w) >= 0; });
   var cl = raw.match(/\b(FEW|SCT|BKN|OVC)\d{3}\b/g);
   var cover = cl ? cl[cl.length-1].slice(0,3) : "CLR";
   if(toks.indexOf("NCD") >= 0 || toks.indexOf("CLR") >= 0 || toks.indexOf("SKC") >= 0) cover = "CLR";
