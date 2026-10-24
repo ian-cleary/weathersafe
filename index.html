@@ -47,6 +47,8 @@
     font-size:clamp(76px,20vw,112px);line-height:.9;margin:0}
   .temp small{font-size:.35em;font-weight:700}
   .feels{font-size:22px;color:var(--muted);margin:6px 0 0}
+  .wind-hero{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;
+    font-size:30px;line-height:1.1;margin:8px 0 0}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .reading{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:16px 18px}
   .reading .label{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
@@ -90,6 +92,7 @@
           <p class="condition" id="condition">Loading…</p>
           <p class="temp"><span id="temp">–</span><small>°C</small></p>
           <p class="feels" id="feels"></p>
+          <p class="wind-hero" id="wind-hero"></p>
         </div>
       </div>
     </section>
@@ -229,7 +232,7 @@ function render(){
   if(!d){
     document.getElementById("glyph").innerHTML = "";
     setText("condition","Unavailable",true);
-    setText("temp","–",true); setText("feels","",false);
+    setText("temp","–",true); setText("feels","",false); setText("wind-hero","",false);
     setText("wind","unavailable",true); setText("wind-sub","",false);
     setText("rain","unavailable",true); setText("rain-sub","",false);
     setText("pressure","unavailable",true); setText("humidity","unavailable",true);
@@ -250,6 +253,14 @@ function render(){
           d.temp === null || d.temp === undefined);
   setText("feels", (d.feels_like === null || d.feels_like === undefined)
           ? "" : "Feels like " + d.feels_like + "°C");
+  if(d.wind_mph === null || d.wind_mph === undefined){
+    setText("wind-hero","Wind unavailable",true);
+  } else {
+    var dirTxt = "";
+    if(d.wind_dir){ dirTxt = (d.wind_dir === "Variable") ? ", variable" : " " + d.wind_dir; }
+    var gustTxt = d.gust_mph ? ", gusting " + d.gust_mph + " mph" : "";
+    setText("wind-hero","Wind " + d.wind_mph + " mph" + dirTxt + gustTxt,false);
+  }
   if(d.wind_mph === null || d.wind_mph === undefined){
     setText("wind","unavailable",true); setText("wind-sub","",false);
   } else {
