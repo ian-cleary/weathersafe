@@ -129,15 +129,17 @@
 
     <section class="card">
       <p class="obs" id="obs">Waiting for data…</p>
+      <p class="obs" id="confidence"></p>
       <button class="refresh" id="refresh" type="button">Refresh</button>
     </section>
   </div>
 
-  <p class="foot">Observations come from the nearest airport weather station
-    (Wick Airport for Thurso, Humberside Airport for Manton) and refresh
-    every 10 minutes. If a source is down, readings show as unavailable — never
-    a guessed number. Feels-like is calculated from temperature and wind.
-    Warnings open on the Met Office website.</p>
+  <p class="foot">Observations come from the best nearby weather station found
+    for each town and refresh every 10 minutes. The confidence note above
+    says how close and reliable that station is. If a source is down,
+    readings show as unavailable — never a guessed number. Feels-like is
+    calculated from temperature and wind. Warnings open on the Met Office
+    website.</p>
 </div>
 
 <script>
@@ -274,6 +276,8 @@ function render(){
     ". Page updated " + new Date().toLocaleTimeString("en-GB",
       {hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"}) + ".";
   setText("obs", obs, false);
+  setText("confidence", "Confidence: " + (d.confidence || "Medium") + " — " +
+    (d.confidence_reason || "nearest official airport station, some miles away"), false);
 }
 
 /* Compact client-side METAR parser, used for the live VATSIM feed and
