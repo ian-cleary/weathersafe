@@ -25,6 +25,16 @@ STATIONS = {
     "manton": {"icao": "EGNJ", "source": "Humberside Airport"},
 }
 
+# Confidence ratings for the current (airport) sources, matching
+# sources.md. The daily source scan maintains these; the updater writes
+# them into data.json so WeatherSafe can show them.
+CONFIDENCE = {
+    "thurso": {"confidence": "Medium",
+               "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts"},
+    "manton": {"confidence": "Medium",
+               "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts"},
+}
+
 COMPASS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
            "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
 
@@ -222,6 +232,7 @@ def main():
     data = {"updated_at": datetime.now(LONDON).isoformat()}
     for key, st in STATIONS.items():
         entry = {"source": st["source"]}
+        entry.update(CONFIDENCE[key])
         try:
             metars = fetch_json("%s/metar?ids=%s&format=json" % (API, st["icao"]))
             if metars:
