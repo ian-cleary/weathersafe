@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-25T19:51:21.725379+00:00",
+  "updated_at": "2026-10-25T20:06:21.646869+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 8,
     "feels_like": 2,
-    "wind_mph": 40,
-    "gust_mph": 58,
+    "wind_mph": 44,
+    "gust_mph": 60,
     "wind_dir": "W",
     "wind_deg": 280,
     "rain_mm": null,
@@ -16,13 +16,13 @@
     "humidity": 76,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-25T19:20:00+00:00",
+    "observed_at": "2026-10-25T20:00:00+00:00",
     "outlook": "Now: West-north-west wind 37 mph, gusting 58 mph; visibility good; scattered cloud at 2000 ft. At times: Visibility moderate, 6000 m; rain. Possibly, at times: West-north-west wind 46 mph, gusting 69 mph; visibility poor, only 2500 m; heavy rain; broken cloud at 1400 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
-      "notice_updated": "Sunday 25th October 2026 at 09:10",
-      "checked_at": "2026-10-25T19:51:32.101644+00:00",
+      "notice_updated": null,
+      "checked_at": "2026-10-25T20:06:34.285892+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 11,
     "feels_like": 11,
-    "wind_mph": 24,
+    "wind_mph": 18,
     "gust_mph": null,
     "wind_dir": "W",
     "wind_deg": 260,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1004,
-    "humidity": 67,
-    "condition": "Cloudy",
-    "glyph": "cloud",
-    "observed_at": "2026-10-25T19:20:00+00:00",
+    "humidity": 71,
+    "condition": "Clear",
+    "glyph": "clear",
+    "observed_at": "2026-10-25T20:00:00+00:00",
     "outlook": "Now: West wind 23 mph, gusting 40 mph; visibility good; scattered cloud at 3500 ft. Becoming: West-south-west wind 16 mph. Possibly, at times: West wind 20 mph, gusting 31 mph."
   }
 }
