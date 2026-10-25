@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T04:36:21.209532+00:00",
+  "updated_at": "2026-10-25T04:51:21.307446+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -21,8 +21,8 @@
     "ferries": {
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
-      "notice_updated": "Saturday 24th October 2026 at 21:05",
-      "checked_at": "2026-10-25T04:36:46.610324+00:00",
+      "notice_updated": "Sunday 25th October 2026 at 04:37",
+      "checked_at": "2026-10-25T04:51:24.792449+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
