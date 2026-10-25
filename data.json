@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T08:51:20.247352+00:00",
+  "updated_at": "2026-10-25T09:06:24.168707+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -7,7 +7,7 @@
     "temp": 8,
     "feels_like": 2,
     "wind_mph": 37,
-    "gust_mph": 52,
+    "gust_mph": 55,
     "wind_dir": "W",
     "wind_deg": 280,
     "rain_mm": null,
@@ -16,13 +16,13 @@
     "humidity": 87,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-25T08:20:00+00:00",
+    "observed_at": "2026-10-25T09:00:00+00:00",
     "outlook": "Now: West wind 35 mph, gusting 52 mph; visibility good; scattered cloud at 2000 ft. Becoming: West wind 40 mph, gusting 63 mph. At times: Visibility moderate, 6000 m; rain, showers.",
     "ferries": {
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
       "notice_updated": "Sunday 25th October 2026 at 07:35",
-      "checked_at": "2026-10-25T08:51:23.776928+00:00",
+      "checked_at": "2026-10-25T09:06:28.068689+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 11,
     "feels_like": 11,
-    "wind_mph": 35,
-    "gust_mph": 47,
+    "wind_mph": 31,
+    "gust_mph": 46,
     "wind_dir": "WSW",
     "wind_deg": 250,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 986,
+    "pressure_hpa": 988,
     "humidity": 76,
-    "condition": "Cloudy",
-    "glyph": "cloud",
-    "observed_at": "2026-10-25T08:20:00+00:00",
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-10-25T09:00:00+00:00",
     "outlook": "Now: West wind 31 mph, gusting 43 mph; visibility good; scattered cloud at 2000 ft. At times: West wind 35 mph, gusting 54 mph. Possibly, at times: Visibility moderate, 8000 m; -shra."
   }
 }
