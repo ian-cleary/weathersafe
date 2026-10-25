@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T16:21:26.229020+00:00",
+  "updated_at": "2026-10-25T16:36:21.507977+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "The 16:45 sailing from Stromness to Scrabster and the 19:00 sailing from Scrabster to Stromness are now cancelled.",
       "notice_updated": "Sunday 25th October 2026 at 09:10",
-      "checked_at": "2026-10-25T16:21:31.037620+00:00",
+      "checked_at": "2026-10-25T16:36:31.940346+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 12,
-    "feels_like": 12,
-    "wind_mph": 30,
-    "gust_mph": 44,
+    "temp": 11,
+    "feels_like": 11,
+    "wind_mph": 29,
+    "gust_mph": 43,
     "wind_dir": "W",
     "wind_deg": 260,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 999,
-    "humidity": 62,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-10-25T16:00:00+00:00",
+    "pressure_hpa": 1000,
+    "humidity": 67,
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-10-25T16:20:00+00:00",
     "outlook": "Now: West wind 35 mph, gusting 54 mph; visibility good; scattered cloud at 3000 ft. Becoming: West wind 26 mph, gusting 43 mph. Possibly, at times: Visibility moderate, 8000 m; -shra."
   }
 }
