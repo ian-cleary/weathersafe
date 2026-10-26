@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T13:21:21.377841+00:00",
+  "updated_at": "2026-10-26T13:36:21.848139+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -9,20 +9,20 @@
     "wind_mph": 15,
     "gust_mph": null,
     "wind_dir": "SSE",
-    "wind_deg": 150,
+    "wind_deg": 160,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 994,
-    "humidity": 76,
+    "pressure_hpa": 993,
+    "humidity": 71,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-10-26T13:00:00+00:00",
+    "observed_at": "2026-10-26T13:20:00+00:00",
     "outlook": "Now: South wind 15 mph; visibility good; a little cloud at 4500 ft. Becoming: South-south-east wind 29 mph, gusting 40 mph. At times: Visibility moderate, 7000 m; rain; broken cloud at 1200 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are under review, with a high probability of cancellation.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T13:21:26.143993+00:00",
+      "checked_at": "2026-10-26T13:36:45.661736+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 12,
     "feels_like": 12,
-    "wind_mph": 23,
+    "wind_mph": 24,
     "gust_mph": null,
     "wind_dir": "S",
     "wind_deg": 180,
     "rain_mm": null,
-    "rain_now": true,
-    "pressure_hpa": 1003,
+    "rain_now": false,
+    "pressure_hpa": 1002,
     "humidity": 94,
-    "condition": "Light rain",
-    "glyph": "rain",
-    "observed_at": "2026-10-26T13:00:00+00:00",
+    "condition": "Cloudy",
+    "glyph": "cloud",
+    "observed_at": "2026-10-26T13:20:00+00:00",
     "outlook": "Now: South wind 18 mph, gusting 32 mph; visibility good; scattered cloud at 3500 ft. At times: Visibility moderate, 7000 m; rain; broken cloud at 1400 ft. Possibly, at times: South wind 24 mph, gusting 44 mph; visibility moderate, 4000 m; heavy rain; broken cloud at 500 ft."
   }
 }
