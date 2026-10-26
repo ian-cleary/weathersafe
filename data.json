@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T12:06:28.219688+00:00",
+  "updated_at": "2026-10-26T12:21:21.001491+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "All PM sailings are under review, with a high probability of cancellation.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T12:06:35.822168+00:00",
+      "checked_at": "2026-10-26T12:21:31.149403+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
