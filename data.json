@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T07:51:23.209219+00:00",
+  "updated_at": "2026-10-26T08:06:21.025719+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -8,21 +8,21 @@
     "feels_like": 3,
     "wind_mph": 8,
     "gust_mph": null,
-    "wind_dir": "WSW",
-    "wind_deg": 240,
+    "wind_dir": "SW",
+    "wind_deg": 230,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 997,
     "humidity": 76,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-10-26T07:20:00+00:00",
+    "observed_at": "2026-10-26T08:00:00+00:00",
     "outlook": "Now: South-west wind 14 mph; visibility good; scattered cloud at 2000 ft. Becoming: South wind 15 mph. At times: South-south-east wind 17 mph, gusting 29 mph; visibility moderate, 6000 m; rain.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are expected to operate to the scheduled timetable but may be subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T07:51:28.332631+00:00",
+      "checked_at": "2026-10-26T08:06:24.730966+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 9,
-    "feels_like": 6,
-    "wind_mph": 13,
+    "temp": 8,
+    "feels_like": 5,
+    "wind_mph": 14,
     "gust_mph": null,
     "wind_dir": "SSW",
     "wind_deg": 210,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 1008,
-    "humidity": 81,
+    "pressure_hpa": 1007,
+    "humidity": 87,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-10-26T07:20:00+00:00",
+    "observed_at": "2026-10-26T08:00:00+00:00",
     "outlook": "Now: South-west wind 17 mph; visibility good; scattered cloud at 3500 ft. Becoming: South wind 18 mph, gusting 32 mph. At times: Visibility moderate, 7000 m; rain; broken cloud at 1400 ft."
   }
 }
