@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T12:21:21.001491+00:00",
+  "updated_at": "2026-10-26T12:36:22.825455+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -8,21 +8,21 @@
     "feels_like": 7,
     "wind_mph": 13,
     "gust_mph": null,
-    "wind_dir": "S",
-    "wind_deg": 170,
+    "wind_dir": "SSE",
+    "wind_deg": 160,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 996,
+    "pressure_hpa": 995,
     "humidity": 71,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-10-26T12:00:00+00:00",
+    "observed_at": "2026-10-26T12:20:00+00:00",
     "outlook": "Now: South wind 15 mph; visibility good; a little cloud at 4500 ft. Becoming: South-south-east wind 29 mph, gusting 40 mph. At times: Visibility moderate, 7000 m; rain; broken cloud at 1200 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are under review, with a high probability of cancellation.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T12:21:31.149403+00:00",
+      "checked_at": "2026-10-26T12:36:30.992773+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 11,
     "feels_like": 11,
-    "wind_mph": 22,
+    "wind_mph": 23,
     "gust_mph": null,
     "wind_dir": "S",
     "wind_deg": 180,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 1004,
+    "pressure_hpa": 1003,
     "humidity": 94,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-26T12:00:00+00:00",
+    "observed_at": "2026-10-26T12:20:00+00:00",
     "outlook": "Now: South wind 18 mph, gusting 32 mph; visibility good; scattered cloud at 3500 ft. At times: Visibility moderate, 7000 m; rain; broken cloud at 1400 ft. Possibly, at times: South wind 24 mph, gusting 44 mph; visibility moderate, 4000 m; heavy rain; broken cloud at 500 ft."
   }
 }
