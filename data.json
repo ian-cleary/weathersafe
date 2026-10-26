@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T20:06:23.641650+00:00",
+  "updated_at": "2026-10-26T20:21:22.411765+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -17,12 +17,12 @@
     "condition": "Clear",
     "glyph": "clear",
     "observed_at": "2026-10-26T20:00:00+00:00",
-    "outlook": "Now: South-south-east wind 32 mph, gusting 46 mph; visibility good; scattered cloud at 1000 ft. Becoming: South-south-east wind 21 mph, gusting 37 mph. At times: Visibility moderate, 7000 m; rain; broken cloud at 1000 ft.",
+    "outlook": "Now: South-south-east wind 21 mph, gusting 37 mph; visibility good; scattered cloud at 1000 ft. Possibly, at times: Visibility moderate, 8000 m; light rain; broken cloud at 1400 ft. At times: South wind 32 mph, gusting 48 mph.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are under review, with a high probability of cancellation.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T20:06:28.277867+00:00",
+      "checked_at": "2026-10-26T20:21:34.586811+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -44,6 +44,6 @@
     "condition": "Clear",
     "glyph": "clear",
     "observed_at": "2026-10-26T20:00:00+00:00",
-    "outlook": "Now: South wind 24 mph; visibility good; scattered cloud at 1000 ft. Possibly, at times: South-south-west wind 28 mph, gusting 40 mph. Possibly, at times: Visibility moderate, 6000 m; -dz; broken cloud at 1000 ft."
+    "outlook": "Now: South wind 23 mph; visibility good; scattered cloud at 1000 ft. Possibly, at times: South-south-west wind 26 mph, gusting 40 mph; visibility moderate, 6000 m; -dz; broken cloud at 1000 ft. At times: Visibility moderate, 6000 m; rain."
   }
 }
