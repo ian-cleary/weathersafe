@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T10:51:23.489072+00:00",
+  "updated_at": "2026-10-26T11:06:21.881836+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -9,20 +9,20 @@
     "wind_mph": 9,
     "gust_mph": null,
     "wind_dir": "S",
-    "wind_deg": 180,
+    "wind_deg": 190,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 997,
-    "humidity": 76,
+    "humidity": 81,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-10-26T10:20:00+00:00",
+    "observed_at": "2026-10-26T11:00:00+00:00",
     "outlook": "Now: West-south-west wind 14 mph; visibility good; a little cloud at 4500 ft. Becoming: South wind 15 mph. Becoming: South-south-east wind 29 mph, gusting 40 mph.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are under review, with a high probability of cancellation.",
       "notice_updated": null,
-      "checked_at": "2026-10-26T10:52:02.834226+00:00",
+      "checked_at": "2026-10-26T11:06:26.316633+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 10,
-    "feels_like": 7,
-    "wind_mph": 15,
+    "temp": 11,
+    "feels_like": 11,
+    "wind_mph": 17,
     "gust_mph": null,
     "wind_dir": "S",
     "wind_deg": 180,
     "rain_mm": null,
     "rain_now": true,
-    "pressure_hpa": 1007,
-    "humidity": 94,
+    "pressure_hpa": 1006,
+    "humidity": 87,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-10-26T10:20:00+00:00",
+    "observed_at": "2026-10-26T11:00:00+00:00",
     "outlook": "Now: South-south-west wind 17 mph; visibility good; scattered cloud at 3500 ft. Becoming: South wind 18 mph, gusting 32 mph. At times: Visibility moderate, 7000 m; rain; broken cloud at 1400 ft."
   }
 }
