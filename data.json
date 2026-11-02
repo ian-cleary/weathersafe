@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T02:14:52.850378+00:00",
+  "updated_at": "2026-11-02T02:30:46.077051+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -14,15 +14,15 @@
     "rain_now": false,
     "pressure_hpa": 1039,
     "humidity": 87,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-02T02:00:00+00:00",
-    "outlook": "Now: West wind 9 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Broken cloud at 1400 ft. Possibly, at times: Visibility moderate, 6000 m; showers.",
+    "condition": "Cloudy",
+    "glyph": "cloud",
+    "observed_at": "2026-11-02T02:20:00+00:00",
+    "outlook": "Now: West wind 9 mph; visibility good; scattered cloud at 2000 ft. At times: Broken cloud at 1400 ft. Possibly, at times: Visibility moderate, 6000 m; rain; broken cloud at 600 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-02T02:14:56.387311+00:00",
+      "checked_at": "2026-11-02T02:31:07.519274+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -32,18 +32,18 @@
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 8,
-    "feels_like": 5,
-    "wind_mph": 10,
+    "feels_like": 6,
+    "wind_mph": 9,
     "gust_mph": null,
-    "wind_dir": "NNW",
-    "wind_deg": 330,
+    "wind_dir": "NW",
+    "wind_deg": 320,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1037,
     "humidity": 93,
-    "condition": "Cloudy",
-    "glyph": "cloud",
-    "observed_at": "2026-11-02T02:00:00+00:00",
-    "outlook": "Now: North wind 9 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Visibility moderate, 8000 m; -shra."
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-02T02:20:00+00:00",
+    "outlook": "Now: North-north-west wind 10 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Visibility moderate, 8000 m; -shra. Becoming: North-north-east wind 12 mph."
   }
 }
