@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-03T22:59:52.770411+00:00",
+  "updated_at": "2026-11-03T23:29:50.846480+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 9,
     "feels_like": 9,
-    "wind_mph": 1,
+    "wind_mph": 2,
     "gust_mph": null,
     "wind_dir": "SW",
     "wind_deg": 220,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1040,
-    "humidity": 87,
+    "humidity": 93,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-03T23:00:00+00:00",
-    "outlook": "Now: Variable wind 3 mph; visibility good; scattered cloud at 2500 ft. Possibly, at times: Visibility moderate, 4000 m; mist; broken cloud at 1400 ft.",
+    "observed_at": "2026-11-03T23:20:00+00:00",
+    "outlook": "Now: Variable wind 3 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility poor, only 2500 m; mist; broken cloud at 1400 ft. Possibly, at times: Visibility poor, only 500 m; fog; broken cloud at 100 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-03T23:00:11.139019+00:00",
+      "checked_at": "2026-11-03T23:29:55.546044+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -36,14 +36,14 @@
     "wind_mph": 9,
     "gust_mph": null,
     "wind_dir": "NE",
-    "wind_deg": 40,
+    "wind_deg": 50,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1035,
     "humidity": 87,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-03T23:00:00+00:00",
-    "outlook": "Now: North wind 10 mph; visibility good; scattered cloud at 4000 ft. Possibly, at times: Visibility moderate, 6000 m; broken cloud at 1400 ft. At times: Visibility moderate, 6000 m; broken cloud at 900 ft."
+    "observed_at": "2026-11-03T23:20:00+00:00",
+    "outlook": "Now: North-north-east wind 10 mph; visibility good; scattered cloud at 4000 ft. At times: Visibility moderate, 6000 m; broken cloud at 1400 ft. Possibly, at times: Visibility moderate, 4000 m; drizzle, mist; broken cloud at 500 ft."
   }
 }
