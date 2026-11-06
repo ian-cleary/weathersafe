@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-06T13:44:53.562178+00:00",
+  "updated_at": "2026-11-06T13:59:49.614320+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 10,
     "feels_like": 8,
-    "wind_mph": 9,
+    "wind_mph": 7,
     "gust_mph": null,
-    "wind_dir": "SE",
-    "wind_deg": 140,
+    "wind_dir": "ESE",
+    "wind_deg": 120,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1029,
     "humidity": 87,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-06T13:20:00+00:00",
+    "observed_at": "2026-11-06T14:00:00+00:00",
     "outlook": "Now: East-south-east wind 3 mph; visibility good; scattered cloud at 3000 ft. At times: Visibility moderate, 5000 m; -dz; broken cloud at 1200 ft. Possibly, at times: Visibility poor, only 2500 m; drizzle, mist; broken cloud at 800 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-06T13:44:57.536732+00:00",
+      "checked_at": "2026-11-06T13:59:52.901091+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -43,7 +43,7 @@
     "humidity": 77,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-06T13:20:00+00:00",
+    "observed_at": "2026-11-06T14:00:00+00:00",
     "outlook": "Now: East-north-east wind 3 mph; visibility good; broken cloud at 3000 ft."
   }
 }
