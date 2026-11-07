@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-07T16:21:25.404430+00:00",
+  "updated_at": "2026-11-07T16:29:50.055759+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 9,
     "feels_like": 9,
-    "wind_mph": 1,
+    "wind_mph": 2,
     "gust_mph": null,
-    "wind_dir": "E",
-    "wind_deg": 80,
+    "wind_dir": "ENE",
+    "wind_deg": 60,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1024,
-    "humidity": 93,
+    "humidity": 87,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-07T16:00:00+00:00",
+    "observed_at": "2026-11-07T16:20:00+00:00",
     "outlook": "Now: Variable wind 3 mph; visibility good; broken cloud at 3000 ft. Possibly, at times: Visibility moderate, 6000 m; -dz; broken cloud at 1400 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-07T16:21:46.435206+00:00",
+      "checked_at": "2026-11-07T16:30:23.651516+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,8 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 11,
-    "feels_like": 11,
-    "wind_mph": 2,
-    "gust_mph": null,
-    "wind_dir": "SW",
-    "wind_deg": 220,
+    "outlook": "Now: Variable wind 3 mph; visibility moderate, 6000 m; light rain; broken cloud at 3000 ft. At times: Visibility moderate, 4000 m; mist; broken cloud at 600 ft. Possibly, at times: Visibility poor, only 300 m; fog; overcast at 100 ft.",
     "rain_mm": 0.0,
-    "rain_now": false,
-    "pressure_hpa": 1021,
-    "humidity": 87,
-    "condition": "Fog",
-    "glyph": "fog",
-    "observed_at": "2026-11-07T16:00:00+00:00",
-    "outlook": "Now: Variable wind 3 mph; visibility moderate, 6000 m; light rain; broken cloud at 3000 ft. At times: Visibility moderate, 4000 m; mist; broken cloud at 600 ft. Possibly, at times: Visibility poor, only 300 m; fog; overcast at 100 ft."
+    "rain_now": false
   }
 }
