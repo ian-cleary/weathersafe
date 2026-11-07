@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Fetch METAR + TAF for Wick (EGPC, proxy for Thurso) and Humberside
 (EGNJ, proxy for Manton) from the free aviation weather API and write
-data.json in the WeatherSafe contract format.
+data.json in the WeatherSafe contract format. Manton's rain fields come
+from EA rain gauge E7130 (Cadney/Brigg) via the open EA
+flood-monitoring API, since the METAR carries no rainfall amounts.
 
 No API key needed. Run by GitHub Actions every 10 minutes, and by hand
 whenever a fresh file is wanted. Never invents numbers: any field the
@@ -21,6 +23,18 @@ LONDON = ZoneInfo("Europe/London")
 KT_TO_MPH = 1.15078
 
 FERRY_URL = "https://www.northlinkferries.co.uk/opsnews/"
+
+# Manton rain from the Environment Agency rain gauge E7130 near
+# Cadney/Brigg (~4 miles east of Manton), via the open EA
+# flood-monitoring API. The gauge is rain-only and reports a 15-minute
+# total every 15 minutes; it supplements the Humberside METAR, which
+# carries no rainfall amounts. It never breaks the run: on any failure
+# fetch_ea_rain() returns {} and Manton's rain fields stay as the METAR
+# left them (rain_mm null, rain_now from the METAR present-weather
+# groups).
+EA_RAIN_URL = ("https://environment.data.gov.uk/flood-monitoring"
+               "/id/stations/E7130/readings?_sorted&_limit=5")
+EA_RAIN_MAX_AGE_HOURS = 2
 # Disruption keywords in priority order for picking the detail line.
 # The "Service Disruptions" header itself is excluded below: it is a
 # heading, not a disruption.
@@ -243,6 +257,43 @@ def fetch_json(url):
         return json.loads(resp.read().decode())
 
 
+def fetch_ea_rain():
+    """Latest rain from EA gauge E7130 for Manton.
+
+    rain_mm is the gauge's latest 15-minute total in mm. rain_now is
+    True when any 15-minute reading in the last 60 minutes recorded
+    more than 0 mm of rain — i.e. it has rained at Cadney/Brigg within
+    the last hour. Returns {} (changing nothing) if the API is
+    unreachable, returns nothing usable, or the latest reading is
+    older than EA_RAIN_MAX_AGE_HOURS.
+    """
+    try:
+        data = fetch_json(EA_RAIN_URL)
+        items = data.get("items") or []
+        readings = []
+        for it in items:
+            try:
+                readings.append((datetime.fromisoformat(
+                    it["dateTime"].replace("Z", "+00:00")),
+                    float(it["value"])))
+            except (KeyError, TypeError, ValueError):
+                continue
+        if not readings:
+            raise ValueError("no usable readings")
+        readings.sort(key=lambda r: r[0], reverse=True)
+        now = datetime.now(timezone.utc)
+        latest_time, latest_mm = readings[0]
+        if (now - latest_time).total_seconds() > EA_RAIN_MAX_AGE_HOURS * 3600:
+            raise ValueError("latest reading stale: %s" % latest_time)
+        hour_ago = now.timestamp() - 3600
+        rain_now = any(v > 0 for t, v in readings
+                       if t.timestamp() >= hour_ago)
+        return {"rain_mm": latest_mm, "rain_now": rain_now}
+    except Exception as exc:
+        print("EA rain E7130 failed: %s" % exc, file=sys.stderr)
+        return {}
+
+
 def fetch_ferries(previous):
     """Scrabster-Stromness (Pentland Firth) disruption flag from
     NorthLink Ops News. Returns a ferries block; on any failure the
@@ -325,6 +376,10 @@ def main():
             print("TAF %s failed: %s" % (st["icao"], exc), file=sys.stderr)
             entry["outlook"] = None
         entry.setdefault("outlook", None)
+        if key == "manton":
+            # EA gauge E7130 supplements the METAR with real rain
+            # amounts; on failure it changes nothing (see fetch_ea_rain).
+            entry.update(fetch_ea_rain())
         data[key] = entry
     prev_ferries = (previous.get("thurso") or {}).get("ferries")
     data["thurso"]["ferries"] = fetch_ferries(prev_ferries)
