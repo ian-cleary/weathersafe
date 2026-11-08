@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-08T09:51:21.377570+00:00",
+  "updated_at": "2026-11-08T09:59:50.322006+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 8,
     "feels_like": 8,
-    "wind_mph": 0,
+    "wind_mph": 1,
     "gust_mph": null,
-    "wind_dir": "N",
-    "wind_deg": 0,
+    "wind_dir": "WSW",
+    "wind_deg": 250,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1021,
     "humidity": 93,
     "condition": "Partly cloudy",
     "glyph": "partly",
-    "observed_at": "2026-11-08T09:20:00+00:00",
+    "observed_at": "2026-11-08T10:00:00+00:00",
     "outlook": "Now: Variable wind 2 mph; visibility good; broken cloud at 4000 ft. Possibly, at times: Visibility moderate, 4000 m; -dz, mist. Possibly, at times: Broken cloud at 1400 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-08T09:51:47.270435+00:00",
+      "checked_at": "2026-11-08T09:59:57.675786+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,8 +31,8 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 7,
-    "feels_like": 5,
+    "temp": 8,
+    "feels_like": 6,
     "wind_mph": 8,
     "gust_mph": null,
     "wind_dir": "SW",
@@ -40,10 +40,10 @@
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 1020,
-    "humidity": 100,
+    "humidity": 93,
     "condition": "Fog",
     "glyph": "fog",
-    "observed_at": "2026-11-08T09:20:00+00:00",
+    "observed_at": "2026-11-08T10:00:00+00:00",
     "outlook": "Now: South-west wind 8 mph; visibility moderate, 6000 m; scattered cloud at 3500 ft. At times: Visibility poor, only 2000 m; mist; broken cloud at 200 ft. Possibly, at times: Visibility poor, only 300 m; drizzle, fog; overcast at 100 ft."
   }
 }
