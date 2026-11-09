@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T06:29:51.240366+00:00",
+  "updated_at": "2026-11-09T06:36:22.187704+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-09T06:29:56.686262+00:00",
+      "checked_at": "2026-11-09T06:36:26.946951+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
