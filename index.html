@@ -195,6 +195,10 @@ var GLYPHS = {
     + '<line x1="34" y1="64" x2="88" y2="64"/><line x1="42" y1="74" x2="80" y2="74"/>'
     + '<line x1="34" y1="84" x2="88" y2="84"/></g></svg>'
 };
+/* Daytime clear sky uses the sun glyph — "clear" has no key of its own,
+   so without this the render falls back to the cloud. Night is handled
+   separately in render() (clear becomes the moon after dark). */
+GLYPHS.clear = GLYPHS.sun;
 var COMPASS = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
 var COMPASS_WORDS = {N:"north",NNE:"north-north-east",NE:"north-east",ENE:"east-north-east",
   E:"east",ESE:"east-south-east",SE:"south-east",SSE:"south-south-east",S:"south",
