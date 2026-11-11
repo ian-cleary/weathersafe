@@ -70,13 +70,32 @@ COMPASS_WORDS = {
     "NNW": "north-north-west",
 }
 
+# Every present-weather group the wx regex can capture must translate here;
+# anything missing falls through as raw code (e.g. "-shra") in the outlook.
 WX_WORDS = {
     "TS": "thunderstorms", "TSRA": "thundery rain", "TSGR": "thundery hail",
+    "+TSRA": "heavy thundery rain", "-TSRA": "light thundery rain",
+    "+TSGR": "heavy thundery hail", "-TSGR": "light thundery hail",
+    "TSSN": "thundery snow", "TSDZ": "thundery drizzle",
+    "TSGS": "thundery small hail",
     "+RA": "heavy rain", "RA": "rain", "-RA": "light rain",
-    "SHRA": "showers", "SHSN": "snow showers",
+    "FZRA": "freezing rain",
+    "-SHRA": "light showers", "SHRA": "showers", "+SHRA": "heavy showers",
+    "-SHSN": "light snow showers", "SHSN": "snow showers",
+    "+SHSN": "heavy snow showers",
+    "SHRASN": "rain and snow showers", "SHSNRA": "snow and rain showers",
     "+SN": "heavy snow", "SN": "snow", "-SN": "light snow",
-    "DZ": "drizzle", "FG": "fog", "BR": "mist", "FU": "smoke",
-    "GR": "hail", "GS": "small hail", "SQ": "squalls", "FC": "funnel cloud",
+    "DZ": "drizzle", "-DZ": "light drizzle", "+DZ": "heavy drizzle",
+    "FZDZ": "freezing drizzle", "SHDZ": "drizzle showers",
+    "SG": "snow grains", "-SG": "light snow grains", "+SG": "heavy snow grains",
+    "SHSG": "snow grain showers",
+    "GR": "hail", "-GR": "light hail", "+GR": "heavy hail",
+    "SHGR": "hail showers",
+    "GS": "small hail", "-GS": "light small hail", "+GS": "heavy small hail",
+    "SHGS": "small hail showers",
+    "FG": "fog", "FZFG": "freezing fog", "BR": "mist", "FU": "smoke",
+    "SQ": "squalls", "-SQ": "light squalls", "+SQ": "heavy squalls",
+    "FC": "funnel cloud",
 }
 
 
@@ -136,9 +155,11 @@ def parse_metar(raw):
     # Present weather: groups like -RA, SHRA, TSGR, FG, BR, SN.
     wx = []
     for tok in tokens:
-        if re.fullmatch(r"[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC)", tok):
+        if re.fullmatch(r"[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC|RASN|SNRA)", tok):
             wx.append(tok)
-    out["rain_now"] = any(w in ("RA", "-RA", "DZ", "-DZ", "SHRA", "+RA", "TSRA") for w in wx)
+    out["rain_now"] = any(w in ("RA", "-RA", "DZ", "-DZ", "SHRA", "-SHRA",
+                              "+SHRA", "+RA", "TSRA", "SHDZ", "+DZ",
+                              "FZRA", "FZDZ", "SHRASN", "SHSNRA") for w in wx)
 
     clouds = re.findall(r"\b(FEW|SCT|BKN|OVC)(\d{3})\b", raw)
     cover = clouds[-1][0] if clouds else None
@@ -155,11 +176,13 @@ def parse_metar(raw):
 
     if any(w.startswith("TS") for w in wx):
         out["condition"], out["glyph"] = "Thunderstorms", "storm"
-    elif any(w in ("SN", "+SN", "-SN", "SHSN") for w in wx):
+    elif any(w in ("SN", "+SN", "-SN", "SHSN", "-SHSN", "+SHSN",
+                 "SHRASN", "SHSNRA") for w in wx):
         out["condition"], out["glyph"] = "Snow", "snow"
-    elif any(w in ("RA", "+RA", "-RA", "SHRA", "DZ", "TSRA") for w in wx):
-        heavy = any(w in ("+RA", "TSRA") for w in wx)
-        out["condition"] = "Heavy rain" if heavy else ("Light rain" if "-RA" in wx or "DZ" in wx else "Rain")
+    elif any(w in ("RA", "+RA", "-RA", "SHRA", "-SHRA", "+SHRA", "DZ",
+                 "-DZ", "+DZ", "TSRA", "SHDZ", "FZRA", "FZDZ") for w in wx):
+        heavy = any(w in ("+RA", "+SHRA", "TSRA") for w in wx)
+        out["condition"] = "Heavy rain" if heavy else ("Light rain" if "-RA" in wx or "-SHRA" in wx or "DZ" in wx or "-DZ" in wx or "SHDZ" in wx else "Rain")
         out["glyph"] = "rain"
     elif any(w in ("FG", "BR") for w in wx) or (vis is not None and vis < 1000):
         out["condition"], out["glyph"] = "Fog", "fog"
@@ -200,7 +223,7 @@ def describe_section(text):
                                            ("moderate, %d m" % v if v >= 3000 else
                                             "poor, only %d m" % v)))
     wx = [t for t in tokens
-          if re.fullmatch(r"[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC)", t)]
+          if re.fullmatch(r"[+-]?(TS|SH|FZ)?(RA|DZ|SN|SG|GR|GS|FG|BR|FU|SQ|FC|RASN|SNRA)", t)]
     if wx:
         bits.append(", ".join(WX_WORDS.get(w, w.lower()) for w in wx))
     clouds = re.findall(r"\b(FEW|SCT|BKN|OVC)(\d{3})\b", text)
@@ -229,19 +252,37 @@ def taf_outlook(raw):
     first = describe_section(head)
     if first:
         sentences.append("Now: " + first)
+    # Change groups as (kind, text): kind ranks certainty — BECMG/FM are
+    # definite changes, TEMPO is at times, PROB is only possible.
+    changes = []
     for i in range(0, len(rest) - 1, 2):
         header, body = rest[i], rest[i + 1]
         desc = describe_section(body)
         if not desc:
             continue
         if header.startswith("BECMG") or header.startswith("FM"):
-            sentences.append("Becoming: " + desc)
+            changes.append(("becoming", "Becoming: " + desc))
         elif header.startswith("PROB"):
-            sentences.append("Possibly, at times: " + desc)
+            changes.append(("prob", "Possibly, at times: " + desc))
         else:
-            sentences.append("At times: " + desc)
-        if len(sentences) >= 3:
-            break
+            changes.append(("tempo", "At times: " + desc))
+    # Keep the outlook readable: at most five change groups. If there are
+    # more, drop the least certain, earliest ones first — never the last
+    # group, so an afternoon/evening deterioration is never silently lost.
+    max_change = 5
+    while len(changes) > max_change:
+        drop = None
+        for rank in ("prob", "tempo", "becoming"):
+            for j in range(len(changes) - 1):
+                if changes[j][0] == rank:
+                    drop = j
+                    break
+            if drop is not None:
+                break
+        if drop is None:
+            drop = 0
+        del changes[drop]
+    sentences.extend(t for _, t in changes)
     return " ".join(sentences) if sentences else None
 
 
