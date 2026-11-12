@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-12T17:21:23.579138+00:00",
+  "updated_at": "2026-11-12T17:29:54.796002+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
-    "temp": 5,
-    "feels_like": 0,
-    "wind_mph": 16,
+    "temp": 4,
+    "feels_like": -1,
+    "wind_mph": 17,
     "gust_mph": null,
     "wind_dir": "NNW",
     "wind_deg": 330,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1009,
-    "humidity": 75,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-12T17:00:00+00:00",
+    "humidity": 70,
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-12T17:20:00+00:00",
     "outlook": "Now: North-north-west wind 17 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility moderate, 5000 m; showers. Possibly, at times: North-north-west wind 29 mph, gusting 40 mph; visibility poor, only 2500 m; broken cloud at 800 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are expected to operate to the scheduled timetable but may be subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-12T17:21:53.399505+00:00",
+      "checked_at": "2026-11-12T17:30:01.075869+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -39,11 +39,11 @@
     "wind_deg": 310,
     "rain_mm": 0.0,
     "rain_now": false,
-    "pressure_hpa": 1008,
+    "pressure_hpa": 1009,
     "humidity": 76,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-12T17:00:00+00:00",
-    "outlook": "Now: North-west wind 12 mph; visibility good; scattered cloud at 3500 ft."
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-12T17:20:00+00:00",
+    "outlook": "Now: West-north-west wind 10 mph; visibility good; a little cloud at 3500 ft."
   }
 }
