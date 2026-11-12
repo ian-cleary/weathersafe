@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T02:29:51.146871+00:00",
+  "updated_at": "2026-11-12T02:36:22.830586+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "The 06:30 sailing from Stromness to Scrabster will now depart at the later time of 09:00. ETA in Scrabster is 10:30, subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-12T02:29:55.325401+00:00",
+      "checked_at": "2026-11-12T02:36:30.167140+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
