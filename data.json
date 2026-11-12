@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-12T20:51:27.209606+00:00",
+  "updated_at": "2026-11-12T20:59:53.663875+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
-    "temp": 4,
+    "temp": 3,
     "feels_like": 0,
-    "wind_mph": 12,
+    "wind_mph": 8,
     "gust_mph": null,
-    "wind_dir": "NNW",
-    "wind_deg": 340,
+    "wind_dir": "WNW",
+    "wind_deg": 300,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1010,
     "humidity": 87,
-    "condition": "Cloudy",
-    "glyph": "cloud",
-    "observed_at": "2026-11-12T20:20:00+00:00",
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-12T21:00:00+00:00",
     "outlook": "Now: West-north-west wind 12 mph; visibility good; scattered cloud at 3000 ft. At times: North-west wind 21 mph, gusting 32 mph; visibility moderate, 7000 m; showers. Possibly, at times: Visibility moderate, 4000 m; heavy showers, small hail showers; broken cloud at 1400 ft. Becoming: West-south-west wind 12 mph. At times: Visibility moderate, 7000 m; rain, showers. Possibly, at times: Broken cloud at 1400 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are expected to operate to the scheduled timetable but may be subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-12T20:51:34.668022+00:00",
+      "checked_at": "2026-11-12T20:59:58.498706+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -39,11 +39,11 @@
     "wind_deg": 310,
     "rain_mm": 0.0,
     "rain_now": false,
-    "pressure_hpa": 1010,
+    "pressure_hpa": 1011,
     "humidity": 81,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-12T20:20:00+00:00",
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-12T21:00:00+00:00",
     "outlook": "Now: West-north-west wind 9 mph; visibility good; a little cloud at 3500 ft."
   }
 }
