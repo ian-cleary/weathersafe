@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-12T19:51:21.303952+00:00",
+  "updated_at": "2026-11-12T19:59:53.605807+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
-    "temp": 2,
-    "feels_like": -3,
-    "wind_mph": 12,
+    "temp": 4,
+    "feels_like": -1,
+    "wind_mph": 15,
     "gust_mph": null,
-    "wind_dir": "NW",
-    "wind_deg": 310,
+    "wind_dir": "N",
+    "wind_deg": 350,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1010,
-    "humidity": 87,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-12T19:20:00+00:00",
+    "humidity": 81,
+    "condition": "Cloudy",
+    "glyph": "cloud",
+    "observed_at": "2026-11-12T20:00:00+00:00",
     "outlook": "Now: North-north-west wind 17 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility moderate, 5000 m; showers. Possibly, at times: North-north-west wind 29 mph, gusting 40 mph; visibility poor, only 2500 m; broken cloud at 800 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All PM sailings are expected to operate to the scheduled timetable but may be subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-12T19:52:00.413889+00:00",
+      "checked_at": "2026-11-12T20:00:00.389303+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,7 +33,7 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 4,
     "feels_like": 1,
-    "wind_mph": 8,
+    "wind_mph": 9,
     "gust_mph": null,
     "wind_dir": "WNW",
     "wind_deg": 300,
@@ -43,7 +43,7 @@
     "humidity": 81,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-12T19:20:00+00:00",
+    "observed_at": "2026-11-12T20:00:00+00:00",
     "outlook": "Now: West-north-west wind 10 mph; visibility good; a little cloud at 3500 ft."
   }
 }
