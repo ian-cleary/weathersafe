@@ -1,15 +1,28 @@
 {
-  "updated_at": "2026-11-13T19:59:53.238661+00:00",
+  "updated_at": "2026-11-13T20:06:23.076367+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
-    "outlook": "Now: West-south-west wind 10 mph; visibility good; scattered cloud at 3500 ft. At times: Visibility moderate, 7000 m; rain, showers. Possibly, at times: West wind 17 mph, gusting 29 mph. Possibly, at times: Visibility moderate, 4000 m; heavy showers; broken cloud at 1400 ft.",
+    "temp": 6,
+    "feels_like": 3,
+    "wind_mph": 9,
+    "gust_mph": null,
+    "wind_dir": "SW",
+    "wind_deg": 220,
+    "rain_mm": null,
+    "rain_now": false,
+    "pressure_hpa": 1008,
+    "humidity": 87,
+    "condition": "Partly cloudy",
+    "glyph": "partly",
+    "observed_at": "2026-11-13T20:00:00+00:00",
+    "outlook": "Now: West-south-west wind 10 mph; visibility good; scattered cloud at 3000 ft. At times: Visibility moderate, 7000 m; showers. Possibly, at times: West wind 17 mph, gusting 29 mph.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-13T20:00:19.993186+00:00",
+      "checked_at": "2026-11-13T20:06:37.053385+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -18,8 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "outlook": "Now: West-south-west wind 8 mph; visibility good; a little cloud at 4000 ft. Becoming: South wind 12 mph.",
+    "temp": 2,
+    "feels_like": -2,
+    "wind_mph": 9,
+    "gust_mph": null,
+    "wind_dir": "SSW",
+    "wind_deg": 210,
     "rain_mm": 0.0,
-    "rain_now": false
+    "rain_now": false,
+    "pressure_hpa": 1018,
+    "humidity": 81,
+    "condition": "Clear",
+    "glyph": "clear",
+    "observed_at": "2026-11-13T20:00:00+00:00",
+    "outlook": "Now: West-south-west wind 8 mph; visibility good; a little cloud at 4000 ft. Becoming: South wind 12 mph."
   }
 }
