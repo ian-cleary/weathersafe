@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T15:51:25.360824+00:00",
+  "updated_at": "2026-11-14T15:59:56.275257+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -16,13 +16,13 @@
     "humidity": 76,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-14T15:20:00+00:00",
+    "observed_at": "2026-11-14T16:00:00+00:00",
     "outlook": "Now: South-south-west wind 17 mph, gusting 29 mph; visibility good; broken cloud at 3000 ft. At times: Visibility moderate, 7000 m; light rain; broken cloud at 1200 ft. Possibly, at times: Visibility moderate, 3000 m; rain. Possibly, at times: South-south-west wind 23 mph, gusting 40 mph.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-14T15:51:45.489180+00:00",
+      "checked_at": "2026-11-14T16:00:01.240588+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 8,
-    "feels_like": 6,
-    "wind_mph": 7,
+    "temp": 6,
+    "feels_like": 4,
+    "wind_mph": 6,
     "gust_mph": null,
-    "wind_dir": "S",
-    "wind_deg": 190,
+    "wind_dir": "SSW",
+    "wind_deg": 200,
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 1012,
-    "humidity": 76,
+    "humidity": 81,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-14T15:20:00+00:00",
+    "observed_at": "2026-11-14T16:00:00+00:00",
     "outlook": "Now: South-south-west wind 13 mph; visibility good; a little cloud at 4500 ft. Possibly, at times: South wind 17 mph, gusting 29 mph."
   }
 }
