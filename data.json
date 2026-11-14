@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-14T11:51:21.706526+00:00",
+  "updated_at": "2026-11-14T11:59:52.230207+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 7,
     "feels_like": 3,
-    "wind_mph": 14,
+    "wind_mph": 15,
     "gust_mph": null,
     "wind_dir": "SSW",
     "wind_deg": 200,
@@ -16,13 +16,13 @@
     "humidity": 81,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-14T11:20:00+00:00",
+    "observed_at": "2026-11-14T12:00:00+00:00",
     "outlook": "Now: South-south-west wind 17 mph; visibility good; a little cloud at 4000 ft. At times: South-west wind 21 mph, gusting 32 mph. At times: Visibility moderate, 7000 m; light rain. Possibly, at times: Visibility moderate, 4000 m; rain; broken cloud at 1200 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-14T11:51:29.170316+00:00",
+      "checked_at": "2026-11-14T11:59:57.961591+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 5,
-    "feels_like": 0,
-    "wind_mph": 17,
+    "temp": 6,
+    "feels_like": 2,
+    "wind_mph": 16,
     "gust_mph": null,
     "wind_dir": "SSW",
-    "wind_deg": 200,
+    "wind_deg": 210,
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 1014,
-    "humidity": 81,
+    "humidity": 76,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-14T11:20:00+00:00",
+    "observed_at": "2026-11-14T12:00:00+00:00",
     "outlook": "Now: South-south-west wind 13 mph; visibility good; a little cloud at 4500 ft. Possibly, at times: South wind 17 mph, gusting 29 mph."
   }
 }
