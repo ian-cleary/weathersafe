@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T22:29:51.176636+00:00",
+  "updated_at": "2026-11-15T22:36:27.617582+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "Due to forecasted weather conditions, all AM sailings will operate with possible weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-15T22:29:58.964916+00:00",
+      "checked_at": "2026-11-15T22:36:34.348076+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
