@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T11:21:20.464649+00:00",
+  "updated_at": "2026-11-15T11:29:52.215122+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -8,21 +8,21 @@
     "feels_like": 4,
     "wind_mph": 3,
     "gust_mph": null,
-    "wind_dir": "NNW",
-    "wind_deg": 340,
+    "wind_dir": "W",
+    "wind_deg": 260,
     "rain_mm": null,
     "rain_now": true,
     "pressure_hpa": 996,
     "humidity": 87,
-    "condition": "Rain",
+    "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-11-15T11:00:00+00:00",
+    "observed_at": "2026-11-15T11:20:00+00:00",
     "outlook": "Now: North wind 10 mph; visibility good; scattered cloud at 3000 ft. Becoming: West-north-west wind 12 mph. Possibly, at times: Visibility moderate, 6000 m; showers; broken cloud at 1200 ft. Becoming: North wind 14 mph.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-15T11:21:37.829797+00:00",
+      "checked_at": "2026-11-15T11:29:58.366346+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,19 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 5,
-    "feels_like": 2,
+    "temp": 6,
+    "feels_like": 3,
     "wind_mph": 10,
     "gust_mph": null,
-    "wind_dir": "SSW",
-    "wind_deg": 200,
+    "wind_dir": "S",
+    "wind_deg": 190,
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 997,
     "humidity": 93,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-15T11:00:00+00:00",
+    "observed_at": "2026-11-15T11:20:00+00:00",
     "outlook": "Now: South wind 12 mph; visibility good; scattered cloud at 2500 ft. Possibly, at times: Visibility moderate, 5000 m; light rain. Becoming: West wind 5 mph. At times: Visibility moderate, 6000 m; rain; broken cloud at 900 ft. Possibly, at times: Visibility poor, only 2500 m; heavy rain, drizzle; broken cloud at 300 ft."
   }
 }
