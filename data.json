@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-15T14:51:22.904528+00:00",
+  "updated_at": "2026-11-15T14:59:59.652145+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
-    "temp": 5,
+    "temp": 4,
     "feels_like": 1,
-    "wind_mph": 13,
+    "wind_mph": 9,
     "gust_mph": null,
     "wind_dir": "WNW",
     "wind_deg": 290,
@@ -14,15 +14,15 @@
     "rain_now": false,
     "pressure_hpa": 996,
     "humidity": 81,
-    "condition": "Partly cloudy",
-    "glyph": "partly",
-    "observed_at": "2026-11-15T14:20:00+00:00",
+    "condition": "Clear",
+    "glyph": "clear",
+    "observed_at": "2026-11-15T15:00:00+00:00",
     "outlook": "Now: West-north-west wind 10 mph; visibility good; scattered cloud at 3000 ft. Possibly, at times: Visibility moderate, 6000 m; showers; broken cloud at 1200 ft. Becoming: North wind 14 mph.",
     "ferries": {
       "status": "disrupted",
       "detail": "Due to forecasted weather conditions, all AM sailings will operate with possible weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-15T14:51:56.745535+00:00",
+      "checked_at": "2026-11-15T15:00:10.393831+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,17 +33,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 6,
     "feels_like": 4,
-    "wind_mph": 7,
+    "wind_mph": 5,
     "gust_mph": null,
-    "wind_dir": "SSW",
-    "wind_deg": 210,
+    "wind_dir": "SW",
+    "wind_deg": 230,
     "rain_mm": 0.0,
     "rain_now": false,
-    "pressure_hpa": 995,
+    "pressure_hpa": 994,
     "humidity": 93,
     "condition": "Partly cloudy",
     "glyph": "partly",
-    "observed_at": "2026-11-15T14:20:00+00:00",
+    "observed_at": "2026-11-15T15:00:00+00:00",
     "outlook": "Now: South-south-west wind 8 mph; visibility good; scattered cloud at 2500 ft. At times: Visibility moderate, 6000 m; rain; broken cloud at 900 ft. Possibly, at times: Visibility poor, only 2500 m; heavy rain, drizzle; broken cloud at 300 ft. Becoming: West wind 12 mph."
   }
 }
