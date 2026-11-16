@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-16T00:21:21.400647+00:00",
+  "updated_at": "2026-11-16T00:29:50.863853+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 1,
     "feels_like": -3,
-    "wind_mph": 8,
+    "wind_mph": 9,
     "gust_mph": null,
-    "wind_dir": "W",
-    "wind_deg": 270,
+    "wind_dir": "WNW",
+    "wind_deg": 290,
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1000,
-    "humidity": 86,
-    "condition": "Clear",
-    "glyph": "clear",
-    "observed_at": "2026-11-16T00:00:00+00:00",
+    "humidity": 93,
+    "condition": "Cloudy",
+    "glyph": "cloud",
+    "observed_at": "2026-11-16T00:20:00+00:00",
     "outlook": "Now: North wind 14 mph; visibility good; scattered cloud at 3000 ft. Becoming: West-north-west wind 10 mph. Possibly, at times: Visibility moderate, 7000 m; showers; broken cloud at 1200 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "Due to forecasted weather conditions, all AM sailings will operate with possible weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-16T00:21:32.040705+00:00",
+      "checked_at": "2026-11-16T00:29:56.876179+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -33,7 +33,7 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 7,
     "feels_like": 3,
-    "wind_mph": 14,
+    "wind_mph": 15,
     "gust_mph": null,
     "wind_dir": "WNW",
     "wind_deg": 290,
@@ -43,7 +43,7 @@
     "humidity": 100,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-11-16T00:00:00+00:00",
+    "observed_at": "2026-11-16T00:20:00+00:00",
     "outlook": "Now: West-north-west wind 12 mph; visibility good; broken cloud at 2500 ft. At times: Visibility moderate, 4000 m; rain; broken cloud at 900 ft. Possibly, at times: Visibility poor, only 1400 m; heavy rain, drizzle; broken cloud at 300 ft."
   }
 }
