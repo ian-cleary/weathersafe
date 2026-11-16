@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T15:59:52.997147+00:00",
+  "updated_at": "2026-11-16T16:06:23.893187+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-16T16:00:01.253989+00:00",
+      "checked_at": "2026-11-16T16:06:53.032164+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -31,19 +31,8 @@
     "source": "Humberside Airport",
     "confidence": "Medium",
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
-    "temp": 6,
-    "feels_like": 4,
-    "wind_mph": 7,
-    "gust_mph": null,
-    "wind_dir": "W",
-    "wind_deg": 280,
+    "outlook": "Now: West wind 8 mph; visibility good; scattered cloud at 4000 ft.",
     "rain_mm": 0.0,
-    "rain_now": false,
-    "pressure_hpa": 1003,
-    "humidity": 70,
-    "condition": "Partly cloudy",
-    "glyph": "partly",
-    "observed_at": "2026-11-16T16:00:00+00:00",
-    "outlook": "Now: West wind 8 mph; visibility good; scattered cloud at 4000 ft."
+    "rain_now": false
   }
 }
