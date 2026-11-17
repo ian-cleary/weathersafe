@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T07:29:51.021555+00:00",
+  "updated_at": "2026-11-17T07:36:22.312773+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-17T07:29:55.769655+00:00",
+      "checked_at": "2026-11-17T07:36:29.634984+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -37,7 +37,7 @@
     "gust_mph": 37,
     "wind_dir": "E",
     "wind_deg": 100,
-    "rain_mm": 0.0,
+    "rain_mm": 0.2,
     "rain_now": true,
     "pressure_hpa": 979,
     "humidity": 93,
