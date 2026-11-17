@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-17T12:21:20.922068+00:00",
+  "updated_at": "2026-11-17T12:29:50.914839+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 8,
     "feels_like": 3,
-    "wind_mph": 26,
-    "gust_mph": 38,
+    "wind_mph": 29,
+    "gust_mph": null,
     "wind_dir": "ESE",
     "wind_deg": 110,
     "rain_mm": null,
@@ -16,13 +16,13 @@
     "humidity": 76,
     "condition": "Partly cloudy",
     "glyph": "partly",
-    "observed_at": "2026-11-17T12:00:00+00:00",
-    "outlook": "Now: East wind 20 mph; visibility good; scattered cloud at 2000 ft. At times: East-south-east wind 23 mph, gusting 35 mph. Possibly, at times: Visibility moderate, 6000 m; showers; broken cloud at 1200 ft.",
+    "observed_at": "2026-11-17T12:20:00+00:00",
+    "outlook": "Now: East wind 20 mph; visibility good; scattered cloud at 2000 ft. At times: East-south-east wind 23 mph, gusting 37 mph. Possibly, at times: Visibility moderate, 6000 m; showers; broken cloud at 1400 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": null,
-      "checked_at": "2026-11-17T12:21:31.624258+00:00",
+      "checked_at": "2026-11-17T12:29:58.570696+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     }
@@ -39,11 +39,11 @@
     "wind_deg": 250,
     "rain_mm": 0.4,
     "rain_now": true,
-    "pressure_hpa": 976,
+    "pressure_hpa": 975,
     "humidity": 100,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-11-17T12:00:00+00:00",
+    "observed_at": "2026-11-17T12:20:00+00:00",
     "outlook": "Now: East wind 12 mph; visibility good; broken cloud at 4000 ft. Becoming: West-south-west wind 17 mph, gusting 29 mph. At times: Visibility moderate, 4000 m; broken cloud at 600 ft. Possibly, at times: Visibility poor, only 1400 m; broken cloud at 300 ft. Possibly, at times: Visibility poor, only 1400 m; mist; broken cloud at 300 ft. Becoming: West-north-west wind 8 mph."
   }
 }
