@@ -4,18 +4,23 @@
 data.json in the WeatherSafe contract format. Manton's rain fields come
 from EA rain gauge E7130 (Cadney/Brigg) via the open EA
 flood-monitoring API, since the METAR carries no rainfall amounts.
+Thurso carries three extra signals, wired in 25 Nov 2026 at Ian's word:
+the Pentland Ferries homepage announcement banner (Gills Bay route),
+the Orkney SEPA waverider's sea state from Cefas WaveNet, and the SEPA
+Halkirk rain gauge as a rainfall cross-check.
 
 No API key needed. Run by GitHub Actions every 10 minutes, and by hand
 whenever a fresh file is wanted. Never invents numbers: any field the
 source does not provide is written as null and the page shows it as
 "unavailable".
 """
+import html as html_mod
 import json
 import math
 import re
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from zoneinfo import ZoneInfo
 
 API = "https://aviationweather.gov/api/data"
@@ -35,6 +40,31 @@ FERRY_URL = "https://www.northlinkferries.co.uk/opsnews/"
 EA_RAIN_URL = ("https://environment.data.gov.uk/flood-monitoring"
                "/id/stations/E7130/readings?_sorted&_limit=5")
 EA_RAIN_MAX_AGE_HOURS = 2
+
+# Pentland Ferries (Gills Bay-St Margaret's Hope) has no status feed:
+# the signal is the announcement banner on its homepage, a div with
+# class "announce". Empty means a normal service; cancellation wording
+# means disruption — but the banner is not always cleared promptly, so
+# dated cancellations count only when a date in the banner is today or
+# later (Europe/London).
+PENTLAND_URL = "https://pentlandferries.co.uk/"
+PENTLAND_KEYWORDS = ("cancel", "combined", "amended", "delay",
+                     "disruption", "suspended")
+
+# Orkney SEPA waverider, via the Cefas WaveNet API's current-map
+# GeoJSON (no key, no special headers). One call returns every buoy;
+# the Orkney feature's id is ORKNEYSEPA. Timestamps are UTC.
+WAVENET_URL = "https://wavenet-api.cefas.co.uk/api/Map/Current"
+WAVENET_BUOY_ID = "ORKNEYSEPA"
+
+# SEPA rain gauge at Halkirk (~7 miles south of Thurso), via SEPA's
+# open rainfall API: one call lists every station with its 36-hour and
+# month totals. Halkirk is station_no 234231 (catchment "Thurso
+# Group"). Timestamps are UK local time; the 36-hour window ends at
+# itemDate_36h. A reading older than 48 hours is treated as failed.
+SEPA_RAIN_URL = "https://rainfall-api.sepa.org.uk/api/Stations/"
+SEPA_HALKIRK_NO = 234231
+SEPA_RAIN_MAX_AGE_HOURS = 48
 # Disruption keywords in priority order for picking the detail line.
 # The "Service Disruptions" header itself is excluded below: it is a
 # heading, not a disruption.
@@ -390,6 +420,135 @@ def fetch_ferries(previous):
         return fallback
 
 
+def fetch_pentland_ferries(previous):
+    """Gills Bay-St Margaret's Hope disruption flag from the Pentland
+    Ferries homepage announcement banner. Same carry-over semantics as
+    fetch_ferries: on any failure the previous block is kept, so a
+    failed fetch never clears a real disruption. A banner whose dated
+    cancellations are all in the past is stale, not a disruption."""
+    fallback = previous or {"status": "unknown", "detail": None,
+                            "checked_at": None,
+                            "source": "Pentland Ferries",
+                            "url": PENTLAND_URL}
+    try:
+        page = fetch_text(PENTLAND_URL)
+        m = re.search(r'<div class="[^"]*\bannounce\b[^"]*">(.*?)</div>',
+                      page, flags=re.S)
+        if not m:
+            raise ValueError("announcement banner not found")
+        text = re.sub(r"<br\s*/?>", "\n", m.group(1))
+        text = re.sub(r"<[^>]+>", "\n", text)
+        lines = [" ".join(l.split())
+                 for l in html_mod.unescape(text).split("\n")]
+        lines = [l for l in lines if l]
+        status, detail = "normal", None
+        if lines:
+            joined = " ".join(lines)
+            low = joined.lower()
+            dates = []
+            for dm in re.finditer(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b", joined):
+                try:
+                    dates.append(date(int(dm.group(3)), int(dm.group(2)),
+                                      int(dm.group(1))))
+                except ValueError:
+                    continue
+            today = datetime.now(LONDON).date()
+            if (any(kw in low for kw in PENTLAND_KEYWORDS)
+                    and (not dates or any(d >= today for d in dates))):
+                status = "disrupted"
+                detail = joined
+                if len(detail) > 240:
+                    detail = detail[:237].rsplit(" ", 1)[0] + "…"
+        return {"status": status, "detail": detail,
+                "checked_at": datetime.now(LONDON).isoformat(),
+                "source": "Pentland Ferries", "url": PENTLAND_URL}
+    except Exception as exc:
+        print("Pentland Ferries fetch failed: %s" % exc, file=sys.stderr)
+        return fallback
+
+
+def fetch_waves(previous):
+    """Sea state from the Orkney SEPA waverider (WaveNet Map/Current).
+    Returns a waves block; on any failure the previous block is
+    carried over with its own observation time, and the page hides it
+    once the observation is more than 12 hours old."""
+    try:
+        data = fetch_json(WAVENET_URL)
+        feat = next((f for f in data.get("features") or []
+                     if (f.get("properties") or {}).get("id")
+                     == WAVENET_BUOY_ID), None)
+        if feat is None:
+            raise ValueError("%s not in Map/Current" % WAVENET_BUOY_ID)
+        props = feat["properties"]
+        results = props.get("results") or {}
+
+        def val(key):
+            vals = (results.get(key) or {}).get("values") or [None]
+            try:
+                return float(vals[0])
+            except (TypeError, ValueError):
+                return None
+
+        hs = val("Hm0")
+        if hs is None:
+            raise ValueError("no wave height reported")
+        dir_deg = val("W_PDIR")
+        observed = None
+        if props.get("timestamp"):
+            observed = (datetime.fromisoformat(props["timestamp"])
+                        .replace(tzinfo=timezone.utc)
+                        .astimezone(LONDON).isoformat())
+        return {"hs_m": hs, "tpeak_s": val("Tpeak"), "tz_s": val("Tz"),
+                "dir_deg": int(dir_deg) if dir_deg is not None else None,
+                "dir": compass(int(dir_deg)) if dir_deg is not None else None,
+                "sea_temp_c": val("TEMP"),
+                "observed_at": observed,
+                "checked_at": datetime.now(LONDON).isoformat(),
+                "source": "Orkney SEPA waverider (WaveNet)",
+                "url": "https://wavenet.cefas.co.uk/"}
+    except Exception as exc:
+        print("Waves fetch failed: %s" % exc, file=sys.stderr)
+        return previous
+
+
+def fetch_sepa_rain(previous):
+    """Rain cross-check for Thurso from the SEPA gauge at Halkirk:
+    the 36-hour total ending at itemDate_36h, plus the month total.
+    On any failure (or a reading older than SEPA_RAIN_MAX_AGE_HOURS)
+    the previous block is carried over and the page hides it once
+    stale."""
+    try:
+        data = fetch_json(SEPA_RAIN_URL)
+        st = next((s for s in data
+                   if s.get("station_no") == SEPA_HALKIRK_NO), None)
+        if st is None:
+            raise ValueError("Halkirk not in SEPA stations list")
+        rain36 = st.get("itemValue_36h")
+        if rain36 is None:
+            raise ValueError("no 36-hour value for Halkirk")
+        observed = None
+        if st.get("itemDate_36h"):
+            odt = (datetime.fromisoformat(st["itemDate_36h"])
+                   .replace(tzinfo=LONDON))
+            age_h = ((datetime.now(timezone.utc) - odt)
+                     .total_seconds() / 3600)
+            if age_h > SEPA_RAIN_MAX_AGE_HOURS:
+                raise ValueError("Halkirk reading stale: %s"
+                                 % st["itemDate_36h"])
+            observed = odt.isoformat()
+        month = st.get("latest_available_month_value")
+        return {"station": "Halkirk",
+                "rain_36h_mm": float(rain36),
+                "month_mm": float(month) if month is not None else None,
+                "observed_at": observed,
+                "checked_at": datetime.now(LONDON).isoformat(),
+                "source": "SEPA rain gauge, Halkirk",
+                "url": "https://rainfall.sepa.org.uk/"}
+    except Exception as exc:
+        print("SEPA rain fetch failed: %s" % exc, file=sys.stderr)
+        return previous
+
+
 def main():
     data = {"updated_at": datetime.now(LONDON).isoformat()}
     try:
@@ -424,6 +583,12 @@ def main():
         data[key] = entry
     prev_ferries = (previous.get("thurso") or {}).get("ferries")
     data["thurso"]["ferries"] = fetch_ferries(prev_ferries)
+    prev_thurso = previous.get("thurso") or {}
+    data["thurso"]["pentland_ferries"] = fetch_pentland_ferries(
+        prev_thurso.get("pentland_ferries"))
+    data["thurso"]["waves"] = fetch_waves(prev_thurso.get("waves"))
+    data["thurso"]["rain_check"] = fetch_sepa_rain(
+        prev_thurso.get("rain_check"))
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
         f.write("\n")
