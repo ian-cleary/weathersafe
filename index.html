@@ -107,6 +107,7 @@
         <p class="label">Rain</p>
         <p class="value" id="rain">–</p>
         <p class="sub" id="rain-sub"></p>
+        <p class="sub" id="rain-sub2"></p>
       </div>
       <div class="reading">
         <p class="label">Pressure</p>
@@ -133,6 +134,12 @@
     <section class="card warn" id="ferry-card" hidden>
       <h2>Ferries</h2>
       <p class="outlook" id="ferry-text"></p>
+      <p class="outlook" id="ferry-text2"></p>
+    </section>
+
+    <section class="card" id="sea-card" hidden>
+      <h2>Sea state — Pentland Firth</h2>
+      <p class="outlook" id="sea-text"></p>
     </section>
 
     <section class="card">
@@ -147,7 +154,9 @@
     says how close and reliable that station is. If a source is down,
     readings show as unavailable — never a guessed number. Feels-like is
     calculated from temperature and wind. Warnings open on the Met Office
-    website.</p>
+    website. Thurso also shows ferry notices for both Pentland Firth
+    routes, the sea state at the Orkney wave buoy, and a rainfall
+    cross-check from the SEPA gauge at Halkirk.</p>
 </div>
 
 <script>
@@ -212,6 +221,7 @@ var TOWNS = {
 };
 var WARN_URL = "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings";
 var FERRY_URL = "https://www.northlinkferries.co.uk/opsnews/";
+var PENTLAND_URL = "https://pentlandferries.co.uk/";
 var currentTown = (location.hash.replace("#","") === "manton") ? "manton" : "thurso";
 var currentData = null;
 
@@ -225,6 +235,15 @@ function setText(id, text, unavail){
   var el = document.getElementById(id);
   el.textContent = text;
   el.classList.toggle("unavail", !!unavail);
+}
+/* Plain words for a significant wave height in metres (Douglas scale). */
+function waveWords(hs){
+  if(hs < 0.5) return "calm";
+  if(hs < 1.25) return "slight";
+  if(hs < 2.5) return "moderate";
+  if(hs < 4) return "rough";
+  if(hs < 6) return "very rough";
+  return "high";
 }
 function render(){
   var t = TOWNS[currentTown], d = currentData;
@@ -242,7 +261,9 @@ function render(){
     setText("pressure","unavailable",true); setText("humidity","unavailable",true);
     setText("outlook","Outlook unavailable right now.",true);
     setText("obs","No data yet — try Refresh.",true);
+    setText("rain-sub2","",false);
     document.getElementById("ferry-card").hidden = true;
+    document.getElementById("sea-card").hidden = true;
     return;
   }
   var glyph = d.glyph || "cloud";
@@ -286,6 +307,16 @@ function render(){
   } else {
     setText("rain","unavailable",true); setText("rain-sub","",false);
   }
+  /* Thurso rain cross-check: the SEPA gauge at Halkirk, 7 miles south,
+     shown while its 36-hour total is under two days old. */
+  var rc = d.rain_check;
+  if(currentTown === "thurso" && rc && rc.rain_36h_mm !== null &&
+     rc.rain_36h_mm !== undefined && ageMinutes(rc.observed_at) < 2880){
+    setText("rain-sub2", "Halkirk gauge cross-check: " + rc.rain_36h_mm +
+      " mm in the last 36 hours", false);
+  } else {
+    setText("rain-sub2", "", false);
+  }
   setText("pressure", (d.pressure_hpa === null || d.pressure_hpa === undefined)
           ? "unavailable" : d.pressure_hpa + " hPa",
           d.pressure_hpa === null || d.pressure_hpa === undefined);
@@ -301,20 +332,53 @@ function render(){
   setText("confidence", "Confidence: " + (d.confidence || "Medium") + " — " +
     (d.confidence_reason || "nearest official airport station, some miles away"), false);
   /* Ferries: Thurso tab only, shown only while a disruption is live
-     (checked within the last day). Normal service shows nothing. */
+     (checked within the last day). Normal service shows nothing.
+     Both Pentland Firth routes are covered: NorthLink (Scrabster) and
+     Pentland Ferries (Gills Bay), each with its own line. */
   var ferryCard = document.getElementById("ferry-card");
   var f = d.ferries;
   var showFerry = currentTown === "thurso" && f && f.status === "disrupted" &&
     ageMinutes(f.checked_at) < 1440;
-  ferryCard.hidden = !showFerry;
+  var pf = d.pentland_ferries;
+  var showPentland = currentTown === "thurso" && pf &&
+    pf.status === "disrupted" && ageMinutes(pf.checked_at) < 1440;
+  ferryCard.hidden = !(showFerry || showPentland);
+  var ft = document.getElementById("ferry-text");
+  ft.hidden = !showFerry;
   if(showFerry){
-    var ft = document.getElementById("ferry-text");
     ft.textContent = "Ferries disrupted: " + (f.detail || "sailings cancelled or delayed") +
       (f.notice_updated ? " (notice " + f.notice_updated + ")" : "") +
       (fmtTime(f.checked_at) ? " — checked " + fmtTime(f.checked_at) + ". " : " ");
     var a = document.createElement("a");
     a.href = FERRY_URL; a.textContent = "NorthLink service updates";
     ft.appendChild(a);
+  }
+  var ft2 = document.getElementById("ferry-text2");
+  ft2.hidden = !showPentland;
+  if(showPentland){
+    ft2.textContent = "Pentland Ferries disrupted: " +
+      (pf.detail || "sailings cancelled or delayed") +
+      (fmtTime(pf.checked_at) ? " — checked " + fmtTime(pf.checked_at) + ". " : " ");
+    var a2 = document.createElement("a");
+    a2.href = PENTLAND_URL; a2.textContent = "Pentland Ferries";
+    ft2.appendChild(a2);
+  }
+  /* Sea state: Thurso tab only, from the Orkney wave buoy, shown
+     while the measurement is under 12 hours old. */
+  var seaCard = document.getElementById("sea-card");
+  var w = d.waves;
+  var showSea = currentTown === "thurso" && w && w.hs_m !== null &&
+    w.hs_m !== undefined && ageMinutes(w.observed_at) < 720;
+  seaCard.hidden = !showSea;
+  if(showSea){
+    var dirW = w.dir && COMPASS_WORDS[w.dir]
+      ? ", from the " + COMPASS_WORDS[w.dir] : "";
+    var sea = "Waves " + w.hs_m.toFixed(1) + " m at the Orkney buoy" +
+      dirW + " — " + waveWords(w.hs_m) + " just now.";
+    if(w.sea_temp_c !== null && w.sea_temp_c !== undefined)
+      sea += " Sea temperature " + w.sea_temp_c.toFixed(1) + "°C.";
+    if(fmtTime(w.observed_at)) sea += " Measured " + fmtTime(w.observed_at) + ".";
+    setText("sea-text", sea, false);
   }
 }
 
@@ -423,6 +487,10 @@ function load(){
         data.outlook = dj.outlook;
       if(dj && dj.ferries && ageMinutes(dj.ferries.checked_at) < 1440)
         data.ferries = dj.ferries;
+      if(dj && dj.pentland_ferries && ageMinutes(dj.pentland_ferries.checked_at) < 1440)
+        data.pentland_ferries = dj.pentland_ferries;
+      if(dj && dj.waves) data.waves = dj.waves;
+      if(dj && dj.rain_check) data.rain_check = dj.rain_check;
     } else if(dj){
       data = dj;
     }
