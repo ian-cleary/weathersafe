@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T16:06:28.153170+00:00",
+  "updated_at": "2026-11-25T16:21:23.631114+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,14 +22,14 @@
       "status": "disrupted",
       "detail": "Due to forecasted adverse weather conditions the pm sailings are currently under review with the probability of an early departure.",
       "notice_updated": null,
-      "checked_at": "2026-11-25T16:06:34.577374+00:00",
+      "checked_at": "2026-11-25T16:21:30.058139+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "The current weather forecasts are indicating the likelihood of disruption to sailings on Thursday afternoon and Friday morning. This may be subject to change as the latest forecasts are reviewed. Thursday 26/11/2026 Scheduled sailing\u2026",
-      "checked_at": "2026-11-25T16:06:37.720009+00:00",
+      "checked_at": "2026-11-25T16:21:32.290912+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 9.85,
       "observed_at": "2026-11-25T15:30:00+00:00",
-      "checked_at": "2026-11-25T16:06:39.042650+00:00",
+      "checked_at": "2026-11-25T16:21:33.476615+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 5.8,
       "month_mm": 47.2,
       "observed_at": "2026-11-25T16:00:00+00:00",
-      "checked_at": "2026-11-25T16:06:40.366302+00:00",
+      "checked_at": "2026-11-25T16:21:34.973767+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
