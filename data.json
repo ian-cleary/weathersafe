@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T05:06:22.430838+00:00",
+  "updated_at": "2026-11-26T05:14:53.490093+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -17,19 +17,19 @@
     "condition": "Cloudy",
     "glyph": "cloud",
     "observed_at": "2026-11-26T05:00:00+00:00",
-    "outlook": "Now: South-south-east wind 23 mph, gusting 35 mph; visibility good; scattered cloud at 4000 ft. Possibly, at times: Visibility moderate, 6000 m; showers. Possibly, at times: South wind 35 mph, gusting 46 mph.",
+    "outlook": "Now: South-south-east wind 23 mph, gusting 35 mph; visibility good; scattered cloud at 4000 ft. Possibly, at times: Visibility moderate, 6000 m; showers. Possibly, at times: South wind 35 mph, gusting 48 mph.",
     "ferries": {
       "status": "disrupted",
       "detail": "All sailing may be subject to weather related delays.",
       "notice_updated": null,
-      "checked_at": "2026-11-26T05:06:28.007429+00:00",
+      "checked_at": "2026-11-26T05:15:00.903894+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "The current weather forecasts are indicating the likelihood of disruption to sailings on Thursday afternoon and Friday morning. This may be subject to change as the latest forecasts are reviewed. Thursday 26/11/2026 Scheduled sailing\u2026",
-      "checked_at": "2026-11-26T05:06:31.365082+00:00",
+      "checked_at": "2026-11-26T05:15:03.777238+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 10.25,
       "observed_at": "2026-11-26T04:30:00+00:00",
-      "checked_at": "2026-11-26T05:06:32.458732+00:00",
+      "checked_at": "2026-11-26T05:15:05.847828+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 5.8,
       "month_mm": 52.2,
       "observed_at": "2026-11-26T05:00:00+00:00",
-      "checked_at": "2026-11-26T05:06:33.716219+00:00",
+      "checked_at": "2026-11-26T05:15:07.203214+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
