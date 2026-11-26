@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T18:59:53.472322+00:00",
+  "updated_at": "2026-11-26T19:06:21.453200+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,14 +22,14 @@
       "status": "disrupted",
       "detail": "All sailing may be subject to weather related delays",
       "notice_updated": "Thursday 26th November at 14:55",
-      "checked_at": "2026-11-26T18:59:59.115185+00:00",
+      "checked_at": "2026-11-26T19:06:26.743166+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*SAILING DISRUPTION* Due to the current weather forecasts the following sailings have been cancelled: THURSDAY 26th NOVEMBER The 1700 sailing from St Margaret\u2019s Hope The 1845 sailing from Gills Bay FRIDAY 27th NOVEMBER \u2013 The 0745\u2026",
-      "checked_at": "2026-11-26T19:00:02.479085+00:00",
+      "checked_at": "2026-11-26T19:06:36.666307+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
@@ -49,8 +49,8 @@
       "station": "Halkirk",
       "rain_36h_mm": 1.0,
       "month_mm": 52.2,
-      "observed_at": "2026-11-26T18:00:00+00:00",
-      "checked_at": "2026-11-26T19:00:05.140302+00:00",
+      "observed_at": "2026-11-26T19:00:00+00:00",
+      "checked_at": "2026-11-26T19:06:39.181026+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
