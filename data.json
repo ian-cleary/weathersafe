@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T17:06:23.862179+00:00",
+  "updated_at": "2026-11-26T17:14:50.863165+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -17,12 +17,12 @@
     "condition": "Cloudy",
     "glyph": "cloud",
     "observed_at": "2026-11-26T17:00:00+00:00",
-    "outlook": "Now: South-south-east wind 25 mph, gusting 40 mph; visibility good; scattered cloud at 2500 ft. Possibly, at times: South-south-east wind 32 mph, gusting 52 mph. At times: South-south-east wind 37 mph, gusting 52 mph. At times: Visibility moderate, 6000 m; rain.",
+    "outlook": "Now: South-south-east wind 29 mph, gusting 40 mph; visibility good; scattered cloud at 2000 ft. At times: South-south-east wind 37 mph, gusting 52 mph. At times: Visibility moderate, 6000 m; rain. Possibly, at times: Visibility moderate, 4000 m; broken cloud at 1400 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All sailing may be subject to weather related delays",
       "notice_updated": "Thursday 26th November at 14:55",
-      "checked_at": "2026-11-26T17:06:30.130238+00:00",
+      "checked_at": "2026-11-26T17:14:57.880736+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 9.95,
       "observed_at": "2026-11-26T16:30:00+00:00",
-      "checked_at": "2026-11-26T17:06:42.517731+00:00",
+      "checked_at": "2026-11-26T17:15:29.468527+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 1.0,
       "month_mm": 52.2,
       "observed_at": "2026-11-26T17:00:00+00:00",
-      "checked_at": "2026-11-26T17:06:44.098355+00:00",
+      "checked_at": "2026-11-26T17:15:31.364167+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -72,6 +72,6 @@
     "condition": "Cloudy",
     "glyph": "cloud",
     "observed_at": "2026-11-26T17:00:00+00:00",
-    "outlook": "Now: East-south-east wind 9 mph; visibility good; scattered cloud at 2500 ft."
+    "outlook": "Now: South-south-east wind 9 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Broken cloud at 1400 ft."
   }
 }
