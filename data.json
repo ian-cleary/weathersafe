@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T22:21:25.835161+00:00",
+  "updated_at": "2026-11-26T22:29:54.541022+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 7,
-    "feels_like": 1,
-    "wind_mph": 32,
+    "feels_like": 2,
+    "wind_mph": 29,
     "gust_mph": 45,
     "wind_dir": "SSE",
     "wind_deg": 160,
@@ -16,32 +16,32 @@
     "humidity": 70,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-26T22:00:00+00:00",
+    "observed_at": "2026-11-26T22:20:00+00:00",
     "outlook": "Now: South-south-east wind 29 mph, gusting 40 mph; visibility good; scattered cloud at 2000 ft. At times: South wind 37 mph, gusting 52 mph. At times: Visibility moderate, 6000 m; rain. Possibly, at times: Visibility moderate, 3000 m; heavy rain; broken cloud at 1400 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "All sailing may be subject to weather related delays",
       "notice_updated": "Thursday 26th November at 14:55",
-      "checked_at": "2026-11-26T22:21:39.856403+00:00",
+      "checked_at": "2026-11-26T22:30:04.012273+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*SAILING DISRUPTION* Due to the current weather forecasts the following sailings have been cancelled: THURSDAY 26th NOVEMBER The 1700 sailing from St Margaret\u2019s Hope The 1845 sailing from Gills Bay FRIDAY 27th NOVEMBER \u2013 The 0745\u2026",
-      "checked_at": "2026-11-26T22:21:42.092598+00:00",
+      "checked_at": "2026-11-26T22:30:07.351883+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
     "waves": {
-      "hs_m": 4.58,
+      "hs_m": 4.74,
       "tpeak_s": 10.0,
       "tz_s": 7.0,
-      "dir_deg": 136,
+      "dir_deg": 142,
       "dir": "SE",
-      "sea_temp_c": 9.8,
-      "observed_at": "2026-11-26T21:30:00+00:00",
-      "checked_at": "2026-11-26T22:21:43.550241+00:00",
+      "sea_temp_c": 9.85,
+      "observed_at": "2026-11-26T22:00:00+00:00",
+      "checked_at": "2026-11-26T22:30:08.427869+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 0.8,
       "month_mm": 52.2,
       "observed_at": "2026-11-26T22:00:00+00:00",
-      "checked_at": "2026-11-26T22:21:45.526150+00:00",
+      "checked_at": "2026-11-26T22:30:09.802832+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -61,17 +61,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 3,
     "feels_like": -1,
-    "wind_mph": 10,
+    "wind_mph": 9,
     "gust_mph": null,
     "wind_dir": "SSE",
     "wind_deg": 150,
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 1019,
-    "humidity": 81,
+    "humidity": 87,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-26T22:00:00+00:00",
+    "observed_at": "2026-11-26T22:20:00+00:00",
     "outlook": "Now: South-south-east wind 9 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Broken cloud at 1400 ft."
   }
 }
