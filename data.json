@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T14:59:55.270233+00:00",
+  "updated_at": "2026-11-27T15:06:27.333125+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "Due to forecasted adverse weather conditions, all sailings may be subject to weather related delays.",
       "notice_updated": "Friday 27th November at 10:40",
-      "checked_at": "2026-11-27T14:59:59.853194+00:00",
+      "checked_at": "2026-11-27T15:06:34.015729+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 10.1,
       "observed_at": "2026-11-27T14:30:00+00:00",
-      "checked_at": "2026-11-27T15:00:08.195255+00:00",
+      "checked_at": "2026-11-27T15:06:38.047051+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 2.8,
       "month_mm": 53.0,
       "observed_at": "2026-11-27T14:00:00+00:00",
-      "checked_at": "2026-11-27T15:00:09.670608+00:00",
+      "checked_at": "2026-11-27T15:06:39.630805+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -66,7 +66,7 @@
     "wind_dir": "SSE",
     "wind_deg": 160,
     "rain_mm": 0.0,
-    "rain_now": true,
+    "rain_now": false,
     "pressure_hpa": 1020,
     "humidity": 87,
     "condition": "Cloudy",
