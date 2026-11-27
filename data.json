@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T18:14:55.944853+00:00",
+  "updated_at": "2026-11-27T18:21:25.792380+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,7 +22,7 @@
       "status": "disrupted",
       "detail": "Due to forecasted adverse weather conditions, all sailings may be subject to weather related delays.",
       "notice_updated": "Friday 27th November at 16:28",
-      "checked_at": "2026-11-27T18:15:01.099849+00:00",
+      "checked_at": "2026-11-27T18:21:35.943933+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 10.0,
       "observed_at": "2026-11-27T17:30:00+00:00",
-      "checked_at": "2026-11-27T18:15:06.508102+00:00",
+      "checked_at": "2026-11-27T18:21:39.486969+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 2.8,
       "month_mm": 53.0,
       "observed_at": "2026-11-27T18:00:00+00:00",
-      "checked_at": "2026-11-27T18:15:07.774637+00:00",
+      "checked_at": "2026-11-27T18:21:40.832185+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -72,6 +72,6 @@
     "condition": "Cloudy",
     "glyph": "cloud",
     "observed_at": "2026-11-27T18:00:00+00:00",
-    "outlook": "Now: South-south-east wind 12 mph; visibility good; broken cloud at 2000 ft. At times: Visibility moderate, 6000 m; broken cloud at 1000 ft."
+    "outlook": "Now: South-south-east wind 12 mph; visibility good; broken cloud at 2000 ft. At times: Visibility moderate, 6000 m; broken cloud at 1000 ft. Possibly, at times: Visibility moderate, 4000 m."
   }
 }
