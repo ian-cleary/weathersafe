@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T23:59:54.457330+00:00",
+  "updated_at": "2026-11-27T00:06:21.693433+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,14 +22,14 @@
       "status": "disrupted",
       "detail": "All sailing may be subject to weather related delays",
       "notice_updated": "Thursday 26th November at 14:55",
-      "checked_at": "2026-11-27T00:00:02.256410+00:00",
+      "checked_at": "2026-11-27T00:07:00.964678+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*SAILING DISRUPTION* Due to the current weather forecasts the following sailings have been cancelled: THURSDAY 26th NOVEMBER The 1700 sailing from St Margaret\u2019s Hope The 1845 sailing from Gills Bay FRIDAY 27th NOVEMBER \u2013 The 0745\u2026",
-      "checked_at": "2026-11-27T00:00:05.986536+00:00",
+      "checked_at": "2026-11-27T00:07:04.568852+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
@@ -41,16 +41,16 @@
       "dir": "SE",
       "sea_temp_c": 9.9,
       "observed_at": "2026-11-26T23:30:00+00:00",
-      "checked_at": "2026-11-27T00:00:07.937574+00:00",
+      "checked_at": "2026-11-27T00:07:05.776307+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
     "rain_check": {
       "station": "Halkirk",
-      "rain_36h_mm": 0.6,
-      "month_mm": 52.2,
-      "observed_at": "2026-11-26T23:00:00+00:00",
-      "checked_at": "2026-11-27T00:00:09.330652+00:00",
+      "rain_36h_mm": 0.4,
+      "month_mm": 53.0,
+      "observed_at": "2026-11-27T00:00:00+00:00",
+      "checked_at": "2026-11-27T00:07:07.185548+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -65,7 +65,7 @@
     "gust_mph": null,
     "wind_dir": "SSE",
     "wind_deg": 150,
-    "rain_mm": 0.0,
+    "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1019,
     "humidity": 87,
