@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-27T14:21:23.482589+00:00",
+  "updated_at": "2026-11-27T14:29:51.542112+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
     "confidence_reason": "Wick Airport, about 20 miles away, official but no rainfall amounts",
     "temp": 7,
     "feels_like": 4,
-    "wind_mph": 12,
+    "wind_mph": 10,
     "gust_mph": null,
-    "wind_dir": "SSW",
-    "wind_deg": 200,
+    "wind_dir": "S",
+    "wind_deg": 190,
     "rain_mm": null,
     "rain_now": false,
-    "pressure_hpa": 1012,
+    "pressure_hpa": 1013,
     "humidity": 76,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-27T14:00:00+00:00",
+    "observed_at": "2026-11-27T14:20:00+00:00",
     "outlook": "Now: South wind 10 mph; visibility good; a little cloud at 3500 ft.",
     "ferries": {
       "status": "disrupted",
       "detail": "Due to forecasted adverse weather conditions, all sailings may be subject to weather related delays.",
       "notice_updated": "Friday 27th November at 10:40",
-      "checked_at": "2026-11-27T14:21:33.564977+00:00",
+      "checked_at": "2026-11-27T14:29:56.347032+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -34,14 +34,14 @@
       "url": "https://pentlandferries.co.uk/"
     },
     "waves": {
-      "hs_m": 3.48,
-      "tpeak_s": 11.1,
-      "tz_s": 7.0,
-      "dir_deg": 134,
+      "hs_m": 4.04,
+      "tpeak_s": 10.5,
+      "tz_s": 7.7,
+      "dir_deg": 139,
       "dir": "SE",
       "sea_temp_c": 10.15,
-      "observed_at": "2026-11-27T13:30:00+00:00",
-      "checked_at": "2026-11-27T14:21:37.906937+00:00",
+      "observed_at": "2026-11-27T14:00:00+00:00",
+      "checked_at": "2026-11-27T14:30:00.838634+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 2.8,
       "month_mm": 53.0,
       "observed_at": "2026-11-27T14:00:00+00:00",
-      "checked_at": "2026-11-27T14:21:39.564179+00:00",
+      "checked_at": "2026-11-27T14:30:02.576197+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -71,7 +71,7 @@
     "humidity": 87,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-11-27T14:00:00+00:00",
+    "observed_at": "2026-11-27T14:20:00+00:00",
     "outlook": "Now: South-south-east wind 12 mph; visibility good; broken cloud at 2000 ft. At times: Visibility moderate, 6000 m; broken cloud at 1000 ft."
   }
 }
