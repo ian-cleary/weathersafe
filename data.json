@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28T13:14:52.733576+00:00",
+  "updated_at": "2026-11-28T13:29:51.980161+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -13,35 +13,35 @@
     "rain_mm": null,
     "rain_now": false,
     "pressure_hpa": 1010,
-    "humidity": 81,
+    "humidity": 87,
     "condition": "Cloudy",
     "glyph": "cloud",
-    "observed_at": "2026-11-28T13:00:00+00:00",
+    "observed_at": "2026-11-28T13:20:00+00:00",
     "outlook": "Now: South-south-east wind 32 mph, gusting 48 mph; visibility good; scattered cloud at 2000 ft. Becoming: South-south-east wind 25 mph, gusting 37 mph. At times: Broken cloud at 1200 ft. At times: Visibility moderate, 7000 m; rain. Possibly, at times: Visibility moderate, 4000 m; heavy rain. Becoming: South-west wind 10 mph.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": "Saturday 28th November at 13:15",
-      "checked_at": "2026-11-28T13:15:03.242771+00:00",
+      "checked_at": "2026-11-28T13:29:58.344235+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*DISRUPTION TO TRAVEL* Due to the forecast of adverse tidal & weather conditions, the following sailings are cancelled: 28/11/2026 Scheduled sailing 11:30 from St Margaret\u2019s Hope \u2013 CANCELLED. Scheduled sailing 13:30 from Gills Bay \u2013\u2026",
-      "checked_at": "2026-11-28T13:15:06.162757+00:00",
+      "checked_at": "2026-11-28T13:30:02.649237+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
     "waves": {
-      "hs_m": 4.04,
+      "hs_m": 4.11,
       "tpeak_s": 9.5,
-      "tz_s": 6.5,
-      "dir_deg": 138,
-      "dir": "SE",
+      "tz_s": 6.6,
+      "dir_deg": 150,
+      "dir": "SSE",
       "sea_temp_c": 10.15,
-      "observed_at": "2026-11-28T12:30:00+00:00",
-      "checked_at": "2026-11-28T13:15:07.389442+00:00",
+      "observed_at": "2026-11-28T13:00:00+00:00",
+      "checked_at": "2026-11-28T13:30:03.816005+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 3.0,
       "month_mm": 55.8,
       "observed_at": "2026-11-28T13:00:00+00:00",
-      "checked_at": "2026-11-28T13:15:08.724096+00:00",
+      "checked_at": "2026-11-28T13:30:05.241400+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -65,7 +65,7 @@
     "gust_mph": null,
     "wind_dir": "SSE",
     "wind_deg": 150,
-    "rain_mm": 1.6,
+    "rain_mm": 1.2,
     "rain_now": true,
     "pressure_hpa": 1015,
     "humidity": 93,
