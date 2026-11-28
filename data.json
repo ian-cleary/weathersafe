@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28T09:59:55.817114+00:00",
+  "updated_at": "2026-11-28T10:06:31.068558+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,26 +22,26 @@
       "status": "disrupted",
       "detail": "As a result, the 09:00 from Stromness to Scrabster has been delayed.",
       "notice_updated": "Saturday 28th November at 09:20",
-      "checked_at": "2026-11-28T10:00:01.576105+00:00",
+      "checked_at": "2026-11-28T10:06:42.217962+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*DISRUPTION TO TRAVEL* Due to the forecast of adverse tidal & weather conditions, the following sailings are cancelled: 28/11/2026 Scheduled sailing 11:30 from St Margaret\u2019s Hope \u2013 CANCELLED. Scheduled sailing 13:30 from Gills Bay \u2013\u2026",
-      "checked_at": "2026-11-28T10:00:04.216020+00:00",
+      "checked_at": "2026-11-28T10:06:51.381444+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
     "waves": {
-      "hs_m": 2.57,
-      "tpeak_s": 6.9,
-      "tz_s": 5.4,
-      "dir_deg": 129,
+      "hs_m": 2.83,
+      "tpeak_s": 8.3,
+      "tz_s": 5.6,
+      "dir_deg": 124,
       "dir": "SE",
-      "sea_temp_c": 10.05,
-      "observed_at": "2026-11-28T09:00:00+00:00",
-      "checked_at": "2026-11-28T10:00:06.828321+00:00",
+      "sea_temp_c": 10.1,
+      "observed_at": "2026-11-28T09:30:00+00:00",
+      "checked_at": "2026-11-28T10:06:52.516544+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -49,8 +49,8 @@
       "station": "Halkirk",
       "rain_36h_mm": 3.2,
       "month_mm": 55.8,
-      "observed_at": "2026-11-28T09:00:00+00:00",
-      "checked_at": "2026-11-28T10:00:08.567067+00:00",
+      "observed_at": "2026-11-28T10:00:00+00:00",
+      "checked_at": "2026-11-28T10:06:54.192587+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
