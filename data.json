@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28T11:59:51.170976+00:00",
+  "updated_at": "2026-11-28T12:14:50.214278+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -22,14 +22,14 @@
       "status": "disrupted",
       "detail": "As a result, the 09:00 from Stromness to Scrabster has been delayed.",
       "notice_updated": "Saturday 28th November at 11:00",
-      "checked_at": "2026-11-28T11:59:57.473877+00:00",
+      "checked_at": "2026-11-28T12:15:04.515385+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
     "pentland_ferries": {
       "status": "disrupted",
       "detail": "*DISRUPTION TO TRAVEL* Due to the forecast of adverse tidal & weather conditions, the following sailings are cancelled: 28/11/2026 Scheduled sailing 11:30 from St Margaret\u2019s Hope \u2013 CANCELLED. Scheduled sailing 13:30 from Gills Bay \u2013\u2026",
-      "checked_at": "2026-11-28T12:00:00.547198+00:00",
+      "checked_at": "2026-11-28T12:15:09.959004+00:00",
       "source": "Pentland Ferries",
       "url": "https://pentlandferries.co.uk/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 10.1,
       "observed_at": "2026-11-28T11:30:00+00:00",
-      "checked_at": "2026-11-28T12:00:01.823068+00:00",
+      "checked_at": "2026-11-28T12:15:11.196624+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 3.2,
       "month_mm": 55.8,
       "observed_at": "2026-11-28T11:00:00+00:00",
-      "checked_at": "2026-11-28T12:00:03.459730+00:00",
+      "checked_at": "2026-11-28T12:15:12.659511+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -65,7 +65,7 @@
     "gust_mph": null,
     "wind_dir": "SSE",
     "wind_deg": 150,
-    "rain_mm": 0.4,
+    "rain_mm": 0.2,
     "rain_now": true,
     "pressure_hpa": 1016,
     "humidity": 87,
