@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28T05:06:25.179905+00:00",
+  "updated_at": "2026-11-28T05:14:54.582557+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -17,12 +17,12 @@
     "condition": "Clear",
     "glyph": "clear",
     "observed_at": "2026-11-28T05:00:00+00:00",
-    "outlook": "Now: South wind 10 mph; visibility good. Becoming: South-south-east wind 18 mph, gusting 30 mph; broken cloud at 2500 ft. Becoming: South-south-east wind 30 mph, gusting 44 mph. At times: Broken cloud at 1200 ft.",
+    "outlook": "Now: South-south-east wind 17 mph, gusting 29 mph; visibility good; scattered cloud at 2000 ft. Becoming: South-south-east wind 32 mph, gusting 48 mph. At times: Broken cloud at 1200 ft. Possibly, at times: Broken cloud at 800 ft. Becoming: South-south-east wind 25 mph, gusting 37 mph.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": "Friday 27th November at 20:32",
-      "checked_at": "2026-11-28T05:06:33.418422+00:00",
+      "checked_at": "2026-11-28T05:15:03.355686+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -41,7 +41,7 @@
       "dir": "SE",
       "sea_temp_c": 9.95,
       "observed_at": "2026-11-28T04:30:00+00:00",
-      "checked_at": "2026-11-28T05:06:37.472816+00:00",
+      "checked_at": "2026-11-28T05:15:07.640360+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 2.8,
       "month_mm": 55.8,
       "observed_at": "2026-11-28T04:00:00+00:00",
-      "checked_at": "2026-11-28T05:06:38.852115+00:00",
+      "checked_at": "2026-11-28T05:15:08.986017+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -72,6 +72,6 @@
     "condition": "Cloudy",
     "glyph": "cloud",
     "observed_at": "2026-11-28T05:00:00+00:00",
-    "outlook": "Now: South-east wind 14 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Visibility moderate, 6000 m; broken cloud at 1000 ft. Possibly, at times: South-south-east wind 21 mph, gusting 32 mph. At times: Visibility moderate, 6000 m; showers, rain; broken cloud at 1000 ft."
+    "outlook": "Now: South-east wind 14 mph; visibility good; scattered cloud at 2000 ft. Possibly, at times: Visibility moderate, 6000 m; broken cloud at 1000 ft. Becoming: South-south-east wind 21 mph, gusting 32 mph. At times: Visibility moderate, 6000 m; showers, rain; broken cloud at 1000 ft."
   }
 }
