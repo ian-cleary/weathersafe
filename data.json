@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T23:51:22.835986+00:00",
+  "updated_at": "2026-11-27T23:59:54.898252+00:00",
   "thurso": {
     "source": "Wick Airport",
     "confidence": "Medium",
@@ -16,13 +16,13 @@
     "humidity": 81,
     "condition": "Clear",
     "glyph": "clear",
-    "observed_at": "2026-11-27T23:20:00+00:00",
+    "observed_at": "2026-11-28T00:00:00+00:00",
     "outlook": "Now: South wind 10 mph; visibility good. Becoming: South-south-east wind 18 mph, gusting 30 mph; broken cloud at 2500 ft. Becoming: South-south-east wind 30 mph, gusting 44 mph. At times: Broken cloud at 1200 ft.",
     "ferries": {
       "status": "normal",
       "detail": null,
       "notice_updated": "Friday 27th November at 20:32",
-      "checked_at": "2026-11-27T23:51:31.042650+00:00",
+      "checked_at": "2026-11-28T00:00:00.008716+00:00",
       "source": "NorthLink Ferries Ops News",
       "url": "https://www.northlinkferries.co.uk/opsnews/"
     },
@@ -34,14 +34,14 @@
       "url": "https://pentlandferries.co.uk/"
     },
     "waves": {
-      "hs_m": 2.78,
-      "tpeak_s": 11.1,
-      "tz_s": 7.4,
-      "dir_deg": 138,
+      "hs_m": 2.47,
+      "tpeak_s": 10.5,
+      "tz_s": 7.0,
+      "dir_deg": 141,
       "dir": "SE",
       "sea_temp_c": 10.0,
-      "observed_at": "2026-11-27T23:00:00+00:00",
-      "checked_at": "2026-11-27T23:51:34.881471+00:00",
+      "observed_at": "2026-11-27T23:30:00+00:00",
+      "checked_at": "2026-11-28T00:00:13.207964+00:00",
       "source": "Orkney SEPA waverider (WaveNet)",
       "url": "https://wavenet.cefas.co.uk/"
     },
@@ -50,7 +50,7 @@
       "rain_36h_mm": 2.8,
       "month_mm": 53.0,
       "observed_at": "2026-11-27T23:00:00+00:00",
-      "checked_at": "2026-11-27T23:51:36.414574+00:00",
+      "checked_at": "2026-11-28T00:00:14.770233+00:00",
       "source": "SEPA rain gauge, Halkirk",
       "url": "https://rainfall.sepa.org.uk/"
     }
@@ -61,17 +61,17 @@
     "confidence_reason": "Humberside Airport, about 15 miles away, official but no rainfall amounts",
     "temp": 4,
     "feels_like": 0,
-    "wind_mph": 12,
+    "wind_mph": 10,
     "gust_mph": null,
-    "wind_dir": "SSE",
-    "wind_deg": 150,
+    "wind_dir": "SE",
+    "wind_deg": 140,
     "rain_mm": 0.0,
     "rain_now": false,
     "pressure_hpa": 1022,
     "humidity": 93,
     "condition": "Light rain",
     "glyph": "rain",
-    "observed_at": "2026-11-27T23:20:00+00:00",
+    "observed_at": "2026-11-28T00:00:00+00:00",
     "outlook": "Now: South-south-east wind 12 mph; visibility good; broken cloud at 2000 ft. At times: Visibility moderate, 6000 m; broken cloud at 1000 ft."
   }
 }
